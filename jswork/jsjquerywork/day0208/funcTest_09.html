@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //중복되는 부분은 함수로 포함하여 사용 / 중복되지 않은 경우 파라메타를 사용하여 함수를 넘겨줌.
+        
+        document.write("안녕~재석이가 자바스크립트 수업을 듣는 중 입니다. <br>");
+        document.write("안녕~명수가 자바스크립트 수업을 듣는 중 입니다. <br>");
+        document.write("안녕~홍철이가 자바스크립트 수업을 듣는 중 입니다. <br>");
+
+        //이름만 파라미터를 만들어서 사용 -> 중복되지 않는 부분은 파라미터로 만든 후 호출시 값을 넘긴다.
+
+        function showName(name) {
+            document.write("안녕~" + name + "이가 자바스크립트 수업을 듣는 중 입니다.<br>");
+        } 
+        showName("재석");
+        showName("하하");
+        showName("준하");
+    </script>
+
+    <!-- ----------------------------------------------------------------- -->
+    <script>
+        function showPeple(name1, age) {
+            document.write("안녕하세요 " + name1 + "님의 " + "나이는 " + age + "세 입니다.<br>");
+
+        }
+        
+        showPeple("영식", 22);
+        showPeple("영철", 26);
+        showPeple("영호", 28);
+
+    </script>
+</body>
+</html>

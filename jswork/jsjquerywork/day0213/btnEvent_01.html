@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 외부 css파일 가져오기 -->
+    <link rel="stylesheet" href="../css/buttonStyle.css">
+    <title>Document</title>
+    <script>
+        window.onload = function() { //각종 이벤트는 여기 안에서 작업해야함.
+            var b2 = document.getElementById("btn2");
+            b2.onclick = function() {
+                var name = prompt("당신의 이름은?");
+
+                if(name == null) {
+                    alert("취소 버튼을 눌렀네요~~~")
+                }
+                else {
+                    alert("내 이름은 " + name + "입니다.");
+                }
+            }
+        }
+
+        function hello() {
+            var ans = confirm("정말 삭제하시겠습니까?");
+            console.log(ans); //크롬 콘솔에서 확인하기, 반환타임이 ture / false
+
+            if(ans) {
+                alert("데이터를 삭제했습니다.");
+            }
+            else {
+                alert("삭제 작업을 취소했습니다.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <button type="button" class="btn btn-orange" onclick="alert('안녕하세요')">Alert</button>
+    <button type="button" class="btn btn-blue" id="btn2">Prompt</button>
+    <button type="button" class="btn btn-green" onclick="hello()">Confirm</button> <!--사용자 정의 함수 hello()-->
+</body>
+</html>

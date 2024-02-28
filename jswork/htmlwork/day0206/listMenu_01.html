@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul.menu li{
+            list-style: none; /*list 타입을 적용 안하겠다는 의미*/
+            float: left; /*list에 적은 위치 이동*/
+            width : 170px;
+            height: 60px;
+            border: 1px solid gray; /*라인만들기*/
+            text-align: center;  /*글자 가운데*/
+            line-height: 60px; /*라인 세로 가운데*/
+            margin-right: 10px; /*라인 사이의 간격 두기*/
+            background-color: blue;
+            color: white;
+            border-radius: 20px; /*모서리 둥글게 하는 효과*/
+
+        }
+        ul.menu li:hover{ /*마우스를 가져다 되면 변화가 되는 효과*/
+            background-color: blueviolet;
+            color: black;
+            cursor: pointer; /*마우스 커서 누르기 표기로 바꾸기*/
+            box-shadow: 5px 5px 5px gray;
+
+        }
+    </style>
+</head>
+<body>
+    <h3>ul을 이용한 간단한 메뉴 만들기</h3>
+    <br>
+    <ul class="menu">
+        <li>Home</li>
+        <li>Shop</li>
+        <li>Q&A</li>
+        <li>고객게시판</li>
+        <li>오시는길</li>
+    </ul>
+</body>
+</html>

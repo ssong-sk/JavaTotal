@@ -1,0 +1,21 @@
+.btn {
+    width: 120px;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.btn-orange {
+    background-color: orange;
+    color: black;
+}
+
+.btn-blue {
+    background-color: blue;
+    color: white;
+}
+
+.btn-green {
+    background-color: green;
+    color: white;
+}

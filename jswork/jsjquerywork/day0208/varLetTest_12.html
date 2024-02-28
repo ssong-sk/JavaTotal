@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        var : 함수형 변수 - 재 선언 되고 업데이트도 가능
+        let : 영역별 변수(영역별로 다른 메모리) - 업데이트는 되지만 재선언 불가능
+        (let변수는 해당 블록{}내에서만 가능)
+        const : 재선언 업데이트 불가능 (object 형태로 변수를 형성함)
+        */
+
+        var hello = "안녕 애들아~~";
+        var hello = "나다 쌤~~"; //재선언 가능
+        var cnt = 5;
+
+        if(cnt < 6) {
+            var hello1 = "say hello";
+            console.log(hello1);
+        }
+        console.log(hello1);
+        console.log(hello);
+
+        //let
+        let hi = "hi라고 인사함";
+        hi = "업데이트 될까?"; //업데이트 가능!!!
+        //let hi = "재언선 가능?"; - 재선언은 불가능
+        let times = 4;
+
+        if(times > 3) {  
+            let hi1 = "say hi~~";
+            console.log(hi1);
+        }
+
+        console.log(hi);
+        //console.log(hi1); //밖에서 콘솔에 출력을 하면 재선언이 안되기 때문에 오류가 난다. / 찾을 수없음
+        
+    </script>
+</body>
+</html>

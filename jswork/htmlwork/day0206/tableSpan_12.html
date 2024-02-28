@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tb2, tb4{
+            width: 400px;
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+
+        .tb2 td, .tb2 th {
+            border: 1px solid green;
+        }
+
+        .tb4{
+            width: 300;
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+
+        .tb4 td, .tb4 th {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <table border = "1" width = "300">
+        <caption>[표1]</caption> <!-- 제목을 나타냄-->
+        <tr height = "50"> <!-- tr은 한줄 / td는 한칸 -->
+            <td align="center">one</td>
+            <td align="center">two</td>
+            <td align="center">three</td>
+        </tr>
+
+        <tr align="center" height = "50">
+            <td colspan="3">
+                3칸 합침!
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+    <table class="tb2">
+        <caption><b>[표2]</b></caption>
+        <tr height = "40">
+            <th>사진</th>
+            <th>이름</th>
+            <th>주소</th>
+            <th>핸드폰</th>
+        </tr>
+        <tr>
+            <td rowspan="3" align="center">
+                <img src = "../image/logoImg/icon02.png" width="80">
+            </td>
+            <td>박보영</td><td>충난 아산시 </td><td>010-145-7485</td>
+        </tr>
+
+        <tr>
+            <td>신민아</td><td>서울시 영등포구 </td><td>010-1555-7485</td>
+        </tr>
+
+        <tr>
+            <td>송혜교</td><td>서울시 마포구 </td><td>010-1555-5565</td>
+        </tr>
+    </table>
+
+    <hr>
+    <table border = "1" width = "300">
+        <caption><b>[표3]</b></caption>
+        <tr height = "50">
+            <td rowspan="3" align="center">1</td> <!-- rowspan은 세로로 병합 / colspan은 가로로 병합-->
+            <td colspan="3" align="center">2</td>
+        </tr>
+
+        <tr height = "50">
+            <td colspan="3" align="center">3</td>
+        </tr>
+
+        <tr height = "50">
+            <td colspan="2" align="center">4</td>
+            <td rowspan="2" align="center">5</td>
+        </tr>
+        
+        <tr height = "50">
+            <td colspan="3" align="center">6</td>
+        </tr>
+    </table>
+
+    <hr>
+    <table border = "1" width = "300">
+        <caption><b>[표4]</b></caption>
+        <tr height = "20">
+            <td colspan="1" align="center">이름</td>
+            <td colspan="1" align="center">사진</td>
+            <td colspan="1" align="center">정보</td>
+           
+        </tr>
+        <tr height = "50">
+            <td rowspan="3" align="center">고준희</td>
+            <td rowspan="3" align="center"><img src="../image/연예인사진/11.jpg" width="120"></td>
+            <td colspan="2" align="center">010-999-8884</td>
+        </tr>
+        
+        <tr height = "50">
+            <td colspan="2" align="center">경영학과</td>
+        </tr>
+
+        <tr height = "50">
+            <td colspan="2" align="center">경기도</td>
+        </tr>
+    </table>
+
+    <table class="tb4">
+        <caption><b>[표4]</b></caption>
+        <tr>
+            <th>이름</th>
+            <th>사진</th>
+            <th>개인정보</th>
+        </tr>
+
+        <tr>
+            <td rowspan="3" align="center">신민아</td>
+            <td rowspan="3" align="center">
+                <img src="../image/연예인사진/17.jpg" width = "100">
+                <td> 010-111-2222</td>
+            </td>
+        </tr>
+
+        <tr>
+            <td>경제학과</td>
+        </tr>
+
+        <tr>
+            <td>4학년</td>
+        </tr>
+
+    </table>
+</body>
+</html>

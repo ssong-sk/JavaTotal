@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //이벤트를 연결
+        window.onload = function() {
+            // 문서 객체 선택
+            let header = document.getElementById("header");
+
+            // 문서 객체 조작
+            header.style.color = 'orange';
+            header.style.background = 'red';
+            header.innerHTML = 'From JavaSctrip';
+        }
+    </script>
+</head>
+<body>
+    <h1 id="header">Header</h1> <!--상부  from javasctrip가 먼저 등장해서 header는 출력값에 노출되지 않음-->
+    <h1>Header</h1>
+    <h1>Header</h1>
+</body>
+</html>

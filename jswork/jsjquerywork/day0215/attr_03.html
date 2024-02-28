@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../image/만화이미지/09.png" id="myImg" width="200"> <!--width값을 주면 속성값이 출력됨.-->
+    <hr>
+    <button type="button" onclick="attrTest()">사이즈 알아보기</button>
+    <hr>
+    <button type="button" onclick="photoLarge()">점점크게</button>
+    <button type="button" onclick="photoSmall()">점점작게</button>
+
+    <script>
+        function attrTest() {
+            var w = document.getElementById("myImg").getAttribute("width"); //getattribute는 이미지의 속성값을 가져옴
+
+            var src = document.getElementById("myImg").getAttribute("src");
+            alert(w + "\n" + src);
+        }
+
+        //점점크게
+        function photoLarge() {
+            var p = document.getElementById("myImg");
+
+            var w = p.getAttribute("width");
+
+            console.log(typeof(w)); //String타입의 숫자를 int타입으로 변경(커지는것만 타입변경해야함.)
+            w = parseInt(w); //형변환
+
+            w+=10;
+            console.log(w);
+
+           p.setAttribute("width", w);
+        }
+
+        //점점작게
+        function photoSmall() {
+            var p = document.getElementById("myImg");
+
+            var w = p.getAttribute("width");
+
+            // console.log(typeof(w)); //String타입의 숫자를 int타입으로 변경(커지는것만 타입변경해야함.)
+            // w = parseInt(w); //형변환
+
+            w-=10;
+            console.log(w);
+
+            p.setAttribute("width", w);
+        }
+    </script>
+</body>
+</html>

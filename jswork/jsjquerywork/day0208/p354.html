@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            let headers = document.querySelectorAll('h1'); //body에 있는 모든 h1값을 불러오는것
+
+            for(let i = 0; i < headers.length; i++) { //let으로 변수타입 설정
+                //변수 선언
+                let header = headers[i];
+                //문서 객체를 조작
+                header.style.color = 'orange';
+                header.style.background = 'red';
+                header.innerHTML = 'From JavaSctrip';
+                
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Header</h1>
+    <h1>Header</h1>
+    <h1>Header</h1>
+</body>
+</html>

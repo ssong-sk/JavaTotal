@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var list = '';
+
+            list += '<ul>';
+            list += '<li>Java</li>';
+            list += '<li>JavaScript</li>';
+            list += '</ul>';
+
+            //document.write(list);
+            //document.body.innerHTML = list; //html문서의 body 태그에 넣겠다....
+            //document.getElementById("out").innerHTML = list; //div안에 들어간것..
+
+            out.innerHTML = list; //document로 찾아서 한것이 아니기 때문에 직접 써서 list를 출력해야함.
+        }
+    </script>
+</head>
+<body>
+    <div id = "out">결과출력</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //이벤트 연결
+        window.onload = function() {
+            //변수를 선언
+            var output = '';
+            for (var i = 0; i < 10; i++) {
+                output += '<h1>Header -' + i + '</h1>';
+            }
+            //문서 객체 내부의 글자를 변경 ->body 태그 내부 까지 들어감
+            document.body.textContent = output; 
+            
+            //innerHTML 속성을 사용 -> html태그를 적용해 내구 글자 변경
+           // document.body.innerHTML = output;
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

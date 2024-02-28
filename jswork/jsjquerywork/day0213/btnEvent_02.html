@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/buttonStyle.css">
+    <script>
+        function test1(a) {
+            alert(a+100);
+        }
+
+        function test2(b) {
+            var b = prompt("문자를 입력하세요.");
+
+            if(b == null) {
+                alert("문자를 입력해주세요.")
+            }
+            else {
+                alert("문자열 " + b + "를\n받았어요"); //\n은 한칸 내리는 명령어
+            }
+        }
+
+        function test3(data) {
+            var data = prompt("데이터를 추가할까요?")
+
+            if(data) {
+                document.getElementById("out").innerHTML='추가했어요';
+                //alert("추가했어요");
+            }
+            else {
+                document.getElementById("out").innerHTML='취소했어요';
+                //alert("취소했어요");
+            }
+        }
+        
+        window.onload = function() {
+          
+            document.getElementById("btn4").onclick=function() {
+                var location = prompt("당신이 사는 지역은 어디 입니까?");
+
+                out.innerHTML="제가 사는 지역은 " + location.fontcolor("orange") + " 입니다.";
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <input type="button" value="alert" class="btn btn-orange" onclick="test1(100)">
+    <input type="button" value="alert" class="btn btn-green" onclick="test2()">
+    <input type="button" value="confirm" class="btn btn-blue" onclick="test3()">
+    <input type="button" value="prompt" class="btn btn-orange" id="btn4">
+
+    <div id="out"></div>
+</body>
+</html>

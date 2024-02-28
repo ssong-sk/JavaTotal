@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img.photo{
+            width : 200px;
+            height: 200px;
+            border: 1px solid green;
+            border-radius: 100px;
+        }
+        b.acc {
+            font-size: 20px;
+            font-family: '궁서체';
+            color: aqua;
+            margin-left: 65px;
+        }
+        div.a {
+            font-size: 2em;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 50px;
+            line-height: 2em;
+        }
+        div.b>figure { /*>표기시 div 바로 밑에 있는 figure 세개만 적용*/
+            float: left; /*가로 방향 정렬*/
+
+        }
+        div.b > figure > img{ /*>는 figure 밑에 있는 img 세개만 적용*/
+            border: 1px solid gray;
+            border-radius: 30px 60px 100px 20px; /*왼쪽 상단 모서리부터 시계방향으로 돔*/
+
+        }
+        div.b > figure > figcaption { /*figure 밑에도 figcaption도 있기 때문에 적용*/
+            font-size: 15px;
+            margin-left: 20px;
+
+        }
+        hr.c{
+            clear: both; /* float: left; 속성 해제하는것*/
+        }
+        div.d{
+            width: 1000px;
+            height: 300px;
+            border:  1px solid goldenrod;
+            margin-left: 100px;
+        }
+        div.d{
+            display: flex;
+            flex-direction: row; /*가로방향...거꾸로 우측정렬은 row-reverse*/
+        }
+    </style>
+</head>
+<body>
+    <img src="../image/logoImg/acc01.png" class="photo">
+    <br>
+    <b class="acc">손목시계</b>
+    <hr>
+    <img src = "../image/쇼핑몰사진/11.jpg" width = "200" border = "10" align = "left" hspace = "20">
+    <div class = "a">플랫슈즈<br>런닝화<br>부츠<br></div>
+    <br>
+
+    <div class = "b">
+        <figure>
+            <img src="../image/logoImg/bag01.png" width = "150">
+            <figcaption><b>블랙 토트백</b></figcaption>
+        </figure> 
+
+        <figure>
+            <img src="../image/logoImg/bag02.png" width = "150">
+            <figcaption><b>그레이 토트백</b></figcaption>
+        </figure> 
+
+        <figure>
+            <img src="../image/logoImg/bag03.png" width = "150">
+            <figcaption><b>구찌 토트백</b></figcaption>
+        </figure> 
+        <hr class = "C"></hr>
+
+        <div class="d">
+            <figure>
+                <img src = "../image/연예인사진/17.jpg" width = "150">
+                <figcaption><b>신민아</b></figcaption>
+            </figure>
+
+            <figure>
+                <img src = "../image/연예인사진/16.jpg" width = "150">
+                <figcaption><b>신민아</b></figcaption>
+            </figure>
+
+            <figure>
+                <img src = "../image/연예인사진/15.jpg" width = "150">
+                <figcaption><b>신민아</b></figcaption>
+            </figure>
+        </div>
+
+    </div>
+</body>
+</html>

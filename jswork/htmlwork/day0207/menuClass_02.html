@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        li.main { /*.사이는 띄어쓰기 하면 안됨!!!!!!!!!!!!!!*/
+            float: left;
+        }
+
+        li.main>a {
+            display: block;
+            width: 200px;
+            color: red;
+            font-weight: bold;
+        }
+
+        ul.submenu {
+            font-size: 12pt;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        ul.submenu>li>a {
+            width: 180px;
+            height: 20px;
+            color: blue;
+            display: block;
+        }
+
+        ul.submenu>li>a:hover {
+            color: brown;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li class="main">
+                <a href="#">1일차</a> <!--href에 #을 입력하면 링크 안걸림-->
+                <ul class="submenu">
+                    <li>
+                        <a href="../day0206/bgImage_09.html">1번예제</a>
+                    </li>
+                    
+                    <li>
+                        <a href="../day0206/cssClass_03.html">3번예제</a>
+                    </li>
+
+                    <li>
+                        <a href="../day0206/aTag_05.html">5번예제</a>
+                    </li>
+
+                    <li>
+                        <a href="../day0206/myPotFolio_13.html">13번예제</a>
+                    </li>
+
+                    <li>
+                        <a href="../day0206/table_11.html">11번예제</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="main">
+                <a href="#">2일차</a> <!--href에 #을 입력하면 링크 안걸림-->
+                <ul class="submenu">
+                    <li>
+                        <a href="../day0206/bgImage_09.html">9번예제</a>
+                    </li>
+                    
+                    <li>
+                        <a href="../day0206/idCss_10.html">10번예제</a>
+                    </li>
+
+                    <li>
+                        <a href="../day0205/imgCss_11.html">11번예제</a>
+                    </li>
+
+                    <li>
+                        <a href="../day0205/tagTest_02.html">2번예제</a>
+                    </li>
+
+                    <li>
+                        <a href="../day0206/divid_07.html">7번예제</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="main">
+                <a href="#">3일차</a> <!--href에 #을 입력하면 링크 안걸림-->
+                <ul class="submenu">
+                    <li>
+                        <a href="../day0205/list_05.html">5번예제</a>
+                    </li>
+                    
+                    <li>
+                        <a href="../day0205/cssClass_10.html">10번예제</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

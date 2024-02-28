@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/buttonStyle.css">
+    <style>
+        #out {
+            position: absolute;
+            left: 10px;
+            top: 200px;
+            width: 300px;
+            height: 200px;
+            border: 1px solid gray;
+            background-color: bisque;
+            padding: 20px 20px;
+        }
+    </style>
+
+    <script>//거주지의 버튼을 선택하면 출력이 되게 하는 법
+        function disp() {
+            //라디오박스
+            var homeStr ="나의 거주지는 "; //거주지
+            for(var i = 0; i < frm.home.length; i++) { //form안에 있는 home을 찾아서 적용
+                if(frm.home[i].checked) {
+                    homeStr += frm.home[i].value + "입니다.<br>";
+                }
+            }
+            document.getElementById("out").innerHTML += "<br>거주지 : " + homeStr; //+=누적 시킴 ->다른 버튼의 출력값도 같이 나와야함.
+
+            //체크박스
+            var chekStr = "나의 취미는 ";
+            var flag = false;
+
+            for(var i = 0; i < frm.hobby.length; i++) {
+                //선택이 true면value값을 읽어서 추가
+                if(frm.hobby[i].checked) {
+                    flag = true;
+                    chekStr += frm.hobby[i].value + "     ";
+                }
+            }
+
+            if(!flag) {
+                chekStr += "취미가 없습니다.<br>";
+            }
+            else {
+                chekStr += "입니다. <br>"
+            }
+
+            out.innerHTML += "취미 : " + chekStr;
+
+
+            //select
+            out.innerHTML += "나이 : " + frm.age.value;
+        }
+    </script>
+</head>
+<body>
+    <div id = "out"></div>
+    <form action="#" name="frm"> 
+        <table border="1" style="width:350px;">
+            <tr>
+                <th>취미</th>
+                <td>
+                    <input type="checkbox" name="hobby" value="게임">게임
+                    <input type="checkbox" name="hobby" value="영화감상">영화감상
+                    <input type="checkbox" name="hobby" value="독서">독서
+                    <input type="checkbox" name="hobby" value="여행">여행
+                </td>
+            </tr>
+
+            <tr>
+                <th>거주지</th>
+                <td>
+                    <input type="radio" name="home" value="경기">경기 <!--value값의 이름과 동일해야함-->
+                    <input type="radio" name="home" value="서울">서울
+                    <input type="radio" name="home" value="제주">제주
+                    <input type="radio" name="home" value="부산">부산
+                </td>
+            </tr>
+
+            <tr>
+                <th>나이</th>
+                <td>
+                    <select name="age" size="1">
+                        <option value="20대">20대</option>
+                        <option value="30대">30대</option>
+                        <option value="40대">40대</option>
+                        <option value="50대">50대</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="결과보기" class="btn-orange" onclick="disp()">
+                    <input type="reset" value="초기화" class="btn-green">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

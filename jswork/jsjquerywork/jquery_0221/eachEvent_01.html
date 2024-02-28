@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR&family=Stylish&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="../js/rndColor.js"></script>
+    <title>Document</title>
+    <style>
+        div{
+            width: 60px;
+            height: 60px;
+            border: 1px solid gray;
+            border-radius: 100px;
+            text-align: center;
+            line-height: 60px;
+            float: left;
+            margin-right: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <div></div><div></div><div></div><div></div><div></div><div></div>
+    <h3></h3>
+
+    <script>
+        $("div").each(function(index){
+            $(this).css("background-color",randomColor).text(index+1);
+        });
+
+
+        //div에 마우스 올리면 해당 색상으로 rgb컬러 출력
+        
+        //방법2_mouseover out 따로
+        $("div").mouseover(function(){
+            var rgb=$(this).css("background-color");
+            $("h3").css("color",rgb).html(rgb);
+        });
+
+        $("div").mouseout(function(){
+            $("h3").empty();
+        });
+
+
+        //*********************************작동 안되는 이유찾기********************
+        // $("div").mouseout(function(){
+        //     var rgb=$(this).css("background-color");
+        //     $("h3").css("color",rgb);
+        // });
+
+        //방법2_hover 사용 
+
+        // $("div").hover(function(){
+        //     var col = $(this).css("background-color");
+        //     $("h3").css("color",col).html(col);
+        // }, function(){
+        //     //지우기 
+        //     $("h3").empty();
+        // });
+        
+
+    </script>
+</body>
+</html>

@@ -28,7 +28,7 @@
     건의하는 메뉴 :
     <% 
       if(menu2 == null) {%>
-        <font color="red">원하는 메뉴 없음</font><br>   	
+        <font color="red">원하는 메뉴 없음</font><br>	
         <%}
       else {
     	  for(int i =0; i < menu2.length; i++) {%>

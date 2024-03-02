@@ -1,3 +1,5 @@
+<%@page import="quiz.model.QuizDao"%>
+<%@page import="quiz.model.QuizDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,5 +13,33 @@
 </head>
 <body>
 
+<%
+  //한글엔 코딩
+  request.setCharacterEncoding("utf-8");
+ 
+  //데이터 읽어서 dto담기
+  String no = request.getParameter("no");
+  String name = request.getParameter("name");
+  String age = request.getParameter("age");
+  String hp = request.getParameter("hp");
+  String driver = request.getParameter("driver");
+  
+  
+  QuizDto dto = new QuizDto();
+  dto.setNo(no);
+  dto.setName(name);
+  dto.setAge(age);
+  dto.setHp(hp);
+  dto.setDriver(driver);
+  
+  //db에 저장
+  QuizDao dao = new QuizDao();
+  dao.infoUpdate(dto);
+  
+  
+  //목록
+  response.sendRedirect("list.jsp");
+  
+  %>
 </body>
 </html>

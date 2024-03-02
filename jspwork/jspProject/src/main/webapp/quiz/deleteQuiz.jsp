@@ -1,3 +1,4 @@
+<%@page import="quiz.model.QuizDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,6 +11,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+    String no = request.getParameter("no");
+    QuizDao dao = new QuizDao();
+    dao.infoDelete(no);
+    
+    response.sendRedirect("list.jsp");
+%>
+  
 
 </body>
 </html>

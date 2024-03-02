@@ -29,12 +29,32 @@
      
      <tr>
        <th width="80">번호</th>
-       <th width="80">이름</th>
-       <th width="80">나이</th>
-       <th width="80">핸드폰</th>
-       <th width="80">운전면허</th>
-       <th width="80">날짜</th>
+       <th width="120">이름</th>
+       <th width="100">나이</th>
+       <th width="250">핸드폰</th>
+       <th width="150">운전면허</th>
+       <th width="350">날짜</th>
+       <th width="200">수정/삭제</th>
      </tr>
+     
+      <%
+     for(int i = 0; i <list.size(); i++) {
+    	 QuizDto dto= list.get(i);
+    	 %>
+    	 <tr>
+    	   <td align="center"><%=i+1 %></td>
+    	   <td><%=dto.getName() %></td>
+    	   <td><%=dto.getAge() %></td>
+    	   <td><%=dto.getHp() %></td>
+    	   <td><%=dto.getDriver() %></td>
+    	   <td><%=dto.getWriteday() %></td>
+    	   <td>
+    	     <button type="button" class="btn btn-info btn-sm" onclick="location.href='updateForm.jsp?no=<%=dto.getNo()%>'">수정</button>
+    	     <button type="button" class="btn btn-danger btn-sm" onclick="location.href='deleteQuiz.jsp?no=<%=dto.getNo()%>'">삭제</button>
+    	   </td>
+    	 </tr> 
+     <%}
+    %>
    </table>
    
    

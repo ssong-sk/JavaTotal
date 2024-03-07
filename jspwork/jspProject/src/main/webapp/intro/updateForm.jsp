@@ -12,16 +12,16 @@
 <title>Insert title here</title>
 </head>
 <%
-  String num = request.getParameter("num");
-  IntroDao dao = new IntroDao();
-  IntroDto dto = dao.getOneData(num);
+  String num=request.getParameter("num");
+  IntroDao dao=new IntroDao();
+  IntroDto dto=dao.getOneData(num);
 %>
 <body>
 <div style="margin: 30px 50px;">
    <form action="updateAction.jsp" method="post">
-     <input type="hidden" name="num" value="<%=num %>">
+     <input type="hidden" name="num" value="<%=num%>">
      <table class="table table-bordered" style="width: 600px;">
-        <caption align="top"><h2 class="alert alert-info"><%=dto.getName() %>님의 자기소개 수정</h2></caption>
+        <caption align="top"><h2 class="alert alert-info"><%=dto.getName() %>님의  자기소개 수정</h2></caption>
         <tr>
           <th >이름</th>
           <td>
@@ -33,7 +33,7 @@
         <tr>
           <th >나이</th>
           <td>
-            <input type="number" name="age" class="form-control" value="<%dto.getAge() %>" style="width: 80px;">
+            <input type="number" name="age" class="form-control" value="<%=dto.getAge() %>" style="width: 80px;">
           </td>
         </tr>
         
@@ -63,16 +63,16 @@
         <tr>
           <th >취미</th>
           <td>
-            <label><input type="checkbox" name="hobby" value="게임"
-            <%=dto.getHobby().equals("게임")?"checked":"" %>>게임</label>
+            <label><input type="checkbox" name="hobby" value="게임" 
+            <%=dto.getHobby().contains("게임")?"checked":"" %>>게임</label>
             <label><input type="checkbox" name="hobby" value="넷플릭스"
-            <%=dto.getHobby().equals("넷플릭스")?"checked":"" %>>넷플릭스</label>
+            <%=dto.getHobby().contains("넷플릭스")?"checked":"" %>>넷플릭스</label>
             <label><input type="checkbox" name="hobby" value="독서"
-            <%=dto.getHobby().equals("독서")?"checked":"" %>>독서</label>
+            <%=dto.getHobby().contains("독서")?"checked":"" %>>독서</label>
             <label><input type="checkbox" name="hobby" value="여행"
-            <%=dto.getHobby().equals("여행")?"checked":"" %>>여행</label>
+            <%=dto.getHobby().contains("여행")?"checked":"" %>>여행</label>
             <label><input type="checkbox" name="hobby" value="공부"
-            <%=dto.getHobby().equals("공부")?"checked":"" %>>공부</label>
+            <%=dto.getHobby().contains("공부")?"checked":"" %>>공부</label>
           </td>
         </tr>
         

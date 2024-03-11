@@ -134,7 +134,7 @@ public class AjaxBoardDao {
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		
-		String sql = "uptate ajaxboard set writer=?, subject=?, content=?, avata=? where num=?";
+		String sql = "update ajaxboard set writer=?, subject=?, content=?, avata=? where num=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -143,6 +143,7 @@ public class AjaxBoardDao {
 			pstmt.setString(2, dto.getSubject());
 			pstmt.setString(3, dto.getContent());
 			pstmt.setString(4, dto.getAvata());
+			pstmt.setString(5, dto.getNum());
 			
 			pstmt.execute();
 		} catch (SQLException e) {

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import mysql.db.DbConnect;
 
@@ -37,8 +38,8 @@ public class GuestDao {
 	}
 	
 	//전체목록
-	public ArrayList<GuestDto> getAllDatas() {
-		ArrayList<GuestDto> list = new ArrayList<GuestDto>();
+	public Vector<GuestDto> getAllDatas() {
+		Vector<GuestDto> list = new Vector<GuestDto>();
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

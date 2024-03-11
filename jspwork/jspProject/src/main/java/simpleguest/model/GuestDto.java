@@ -10,6 +10,8 @@ public class GuestDto {
 	private String image;
 	private String content;
 	private Timestamp writeday;
+	
+	
 	public String getNum() {
 		return num;
 	}

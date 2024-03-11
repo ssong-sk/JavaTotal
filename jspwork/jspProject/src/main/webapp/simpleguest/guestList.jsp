@@ -1,3 +1,4 @@
+<%@page import="java.util.Vector"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="simpleguest.model.GuestDao"%>
@@ -29,7 +30,7 @@
 <body>
  <%
    GuestDao dao = new GuestDao();
-   ArrayList<GuestDto> list = dao.getAllDatas();
+   Vector<GuestDto> list = dao.getAllDatas();
  %>
 </body>
   <div style="margin: 50px 100px; width: 600px;">

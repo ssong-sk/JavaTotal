@@ -150,7 +150,7 @@
 			})
 		})
 		
-		//목록에서 수정버튼
+		//목록에서 수정버튼을 눌러서 수정하기
       $(document).on("click",".btnupdate",function(){
          var num = $(this).attr("num");
          
@@ -179,7 +179,7 @@
          })
       })   
       
-      	//수정폼 저장
+      	//수정한 폼을 저장해서 목록으로 가기
 		$("#dbUpdate").click(function(){
 			var data = $("#updatefrm").serialize();
 			//alert(data);

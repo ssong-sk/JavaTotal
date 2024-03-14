@@ -52,8 +52,8 @@
          <td colspan="2" align="right">
            <button type="button" class="btn btn-outline-warning" onclick="location.href='addForm.jsp'">글쓰기</button>
            <button type="submit" class="btn btn-outline-info" onclick="location.href='boardList.jsp'">목록</button>
-           <button type="button" class="btn btn-outline-success">수정</button>
-           <button type="button" class="btn btn-outline-danger">삭제</button>
+           <button type="button" class="btn btn-outline-success" onclick="location.href='updateForm.jsp?num=<%=dto.getNum()%>'">수정</button>
+           <button type="button" class="btn btn-outline-danger" onclick="location.href='deleteForm.jsp?num=<%=dto.getNum()%>'">삭제</button>
          </td>
        </tr>
    </table>

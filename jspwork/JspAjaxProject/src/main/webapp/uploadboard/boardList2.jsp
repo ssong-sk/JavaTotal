@@ -13,7 +13,6 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
  <%
- String num = request.getParameter("num");
  UploadBoardDao dao = new UploadBoardDao();
  List<UploadBoardDto> list = dao.getAllDatas();
  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -53,5 +52,47 @@
       </div>
     <% } %>
   </div>
+  
+  
+  
+  <!-- 방법2
+  <div style="margin: 200px 100px; width: 900px">
+    <table class="table table-bordered">
+      <caption align="top"><b>앨범형 목록보기</b>
+      <button type="button" class="btn btn-info" onclick="location.href='addForm.jsp'">글쓰기</button></caption>
+      
+      <tr>
+        <%
+//           for(int i = 0; i < list.size(); i++) {
+//         	  int num = list.size()-i;
+//         	  UploadBoardDto dto = list.get(i);
+        	  %>
+<!--         	  <td> -->
+<%--         	  <a><img src="../save/<%=dto.getImgname()%>" style="width: 180px; height: 180px; --%>
+<!--         	  border="lpx solid gray; margin: 5px"> -->
+<!--         	  <br> -->
+<%--         	  <%=dto.getSubject() %></a> --%>
+<!--         	  <br> -->
+<!--         	  <span style="color:gray; font-size: 10pt;"> -->
+<%--         	  조회 : <%=dto.getReadcount() %> --%>
+<%--         	  <%=sdf.format(dto.getWriteday()) %> --%>
+<!--         	  <br> -->
+<%--         	  <%=dto.getWriter() %> --%>
+<!--         	  </span> -->
+<!--         	  <br><br> -->
+<!--         	  </td> -->
+        	  
+<%--         	  <% --%>
+<%--         	    if((i+1) % 4 == 0) {%> --%>
+<!--         	    	  </tr> -->
+<!--         	    	  <tr> -->
+<%--         	    <%} --%>
+        	  
+<%--         	  %> --%>
+<%--           <%} --%>
+<%--         %> --%>
+      </tr>  
+    </table>
+  </div>  -->
 </body>
 </html>

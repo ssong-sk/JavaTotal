@@ -22,7 +22,135 @@
     color: #ccc;
     font-size: 0.8em;
   }
+  
+  span.aday {
+    float: right;
+    font-size: 0.8em;
+    color: #bbb;
+  }
+  
+  div.alist {
+    margin-left: 20px;
+  }
+  
+  i.amod {
+    margin-left: 20px;
+    color: gray;
+    font-size: 17px;
+    cursor: pointer;
+    
+  }
+  
+  i.adel {
+    color: gray;
+    font-size: 17px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
 </style>
+
+<script type="text/javascript">
+  $(function () {
+	  
+	 list();
+	//ajax insert
+	//var num =  $("#num").val();
+	
+	$("#btnsend").click(function() {
+		var num =  $("#num").val();
+		var nickname = $("#nickname").val().trim();
+		var content = $("#content").val().trim();
+		
+		if(nickname == "") {
+			alert("닉네임을 입력 후 저장해주세요");
+			return;
+		}
+		
+		if(content == "") {
+			alert("댓글내용을 입력 후 저장해주세요");
+			return;
+		}
+		
+		
+		$.ajax({
+			
+			type : "post",
+			datatype : "html",
+			url : "../simpleboardanswer/insertAnswer.jsp",
+		    data : {"num":num,"nickname":nickname, "content":content},
+		    success : function () {
+			
+				$("#nickname").val("");
+				$("#content").val("");
+				
+				
+				list();
+			}
+		})
+		
+	});
+		//삭제
+		$(document).on("click","i.adel",function(){
+			var idx = $(this).attr("idx");
+			
+			var ans = confirm("댓글을 삭제하려면 [확인]을 눌러주세요");
+			
+			if(ans) {
+				
+				//alert(idx);
+				$.ajax ({
+					type:"get",
+					dataType : "html",
+					url : "../simpleboardanswer/deleteAnswer.jsp",
+					data : {"idx":idx},
+					success:function(){
+						alert("삭제되었습니다");
+						list();
+						
+					}
+			});
+			
+			 
+			}
+		})
+	  
+   
+	
+	//alert(num);
+	
+});
+  
+  function list() {
+	  
+	  $.ajax ({
+		
+		  type : "get",
+		  url : "../simpleboardanswer/listAnswer.jsp",
+		  dataType : "json",
+		  data : {"num":$("#num").val()},
+		  success : function (res) {
+			//댓글 갯수 출력
+			$("b.acount>span").text(res.length);
+			
+			var s = "";
+			$.each(res,function(idx,item){
+				
+				s += "<div>"+item.nickname+":"+item.content;
+				s += "<span class = 'aday'>"+item.writeday+"</span>";
+				s += "<i class='bi bi-pencil amod'></i>";
+				s += "<i class='bi bi-trash3 adel' idx='"+item.idx+"'></i>";
+				
+				
+			});
+			
+			$("div.alist").html(s);
+		}
+	  });
+	
+}
+   
+
+</script>
 </head>
 
  <%
@@ -40,6 +168,8 @@
    
  %>
 <body>
+ <input type="hidden" id="num" value="<%=num%>">
+
  <div style="margin: 50px 100px; width: 500px;">
    <table class="table table-bordered">
      <caption align="top"><b style="font-size: 15pt;"><%=dto.getSubject() %></b></caption>
@@ -55,6 +185,26 @@
      <tr height="250">
        <td>
          <%=dto.getContent().replace("\n", "<br>") %>
+       </td>
+     </tr>
+     
+     <!-- 댓글 -->
+     <tr>
+       <td>
+         <b class="acount">댓글<span>0</span></b>
+         <div class="alist">
+           댓글목록
+         </div>
+         
+         <div class="aform input-group">
+           <input type="text" id="nickname" class="form-control" style="width: 80px;" placeholder="닉네임 입력">
+           <input type="text" id="content" class="form-control" style="width: 300px; 
+           margin-left: 10px" placeholder="댓글 입력">
+           
+           <button type="button" id="btnsend" class="btn btn-outline-info btn-sm"
+           style="margin-left: 10px;">저장</button>
+         </div>
+         
        </td>
      </tr>
      

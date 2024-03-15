@@ -1,3 +1,5 @@
+<%@page import="simpleboard.model.simpleBoardDao"%>
+<%@page import="simpleboard.model.simpleBoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,6 +12,29 @@
 <title>Insert title here</title>
 </head>
 <body>
+  <%
+   request.setCharacterEncoding("utf-8");
+  
+   String num = request.getParameter("num");
+   String writer = request.getParameter("writer");
+   String subject = request.getParameter("subject");
+   String content = request.getParameter("content");
+   String pass = request.getParameter("pass");
+   
+   simpleBoardDto dto = new simpleBoardDto();
+   
+   dto.setNum(num);
+   dto.setWriter(writer);
+   dto.setSubject(subject);
+   dto.setContent(content);
+   dto.setPass(pass);
+   
+   simpleBoardDao dao = new simpleBoardDao();
+   dao.updateSimpleBoard(dto);
+   
+   response.sendRedirect("contentView.jsp?num="+dto.getNum());
+  
+  %>
 
 </body>
 </html>

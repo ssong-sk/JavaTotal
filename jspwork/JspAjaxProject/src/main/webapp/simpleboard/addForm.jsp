@@ -56,7 +56,6 @@
 <!-- 이미지로 버튼만드는 로직  <input type="image" src="../image/logoImg/dog.jpg" style="width: 60px"> -->
           </td>
           
-         
         </tr>
         
       </table>

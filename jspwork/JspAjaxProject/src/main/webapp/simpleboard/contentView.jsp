@@ -113,10 +113,60 @@
 			 
 			}
 		})
+		
+		//댓글 글자 누르면 댓글 창 나오게
+		$("b.acount").click(function(){
+			$("div.aupdateform").hide();
+			$("div.aform").toggle();
+		})
+		
+		//수정창 안보이게
+		$("div.aupdateform").hide();
 	  
-   
+     //댓글list의 수정 아이콘 누르면 수정 댓글창에 해당 idx의 내용 띄우기
+     $(document).on("click",".amod",function(){
+    	 $("div.aform").hide();
+    	 $("div.aupdateform").show();
+    	 
+    	 var idx = $(this).attr("idx");
+    	 //alert(idx);
+    	 $("#idx").val(idx);
+    	 
+    	 $.ajax({
+    		 type : "get",
+    		 dataType : "json",
+    		 url : "../simpleboardanswer/oneDataAnswer.jsp",
+    		 data : {"idx":idx},
+    		 success : function(res) {
+    			 $("#idx").val(res.idx);
+    			 $("#unickname").val(res.nickname);
+    			 $("#ucontent").val(res.content);
+    		 }
+    	 })  
+     });
+     
+     //수정
+     $("#btnUsend").click(function(){
+    	var idx = $("#idx").val();
+    	var nickname = $("#unickname").val();
+    	var content = $("#ucontent").val();
+    	
+    	//alert(idx+","+nickname+","+content);
+    	
+    	$.ajax({
+    		type : "get",
+    		url : "../simpleboardanswer/updateAnswer.jsp",
+    		dataTyle : "html",
+    		data : {"idx":idx, "nickname":nickname,"content":content},
+    		success : function() {
+    			list();
+    			$("div.aupdateform").hide();
+    			$("div.aform").show();
+    		}
+    	})
+     });
 	
-	//alert(num);
+	
 	
 });
   
@@ -137,7 +187,7 @@
 				
 				s += "<div>"+item.nickname+":"+item.content;
 				s += "<span class = 'aday'>"+item.writeday+"</span>";
-				s += "<i class='bi bi-pencil amod'></i>";
+				s += "<i class='bi bi-pencil amod' idx='"+item.idx+"'></i>";
 				s += "<i class='bi bi-trash3 adel' idx='"+item.idx+"'></i>";
 				
 				
@@ -192,7 +242,7 @@
      <tr>
        <td>
          <b class="acount">댓글<span>0</span></b>
-         <div class="alist">
+         <div class="alist" id="alist">
            댓글목록
          </div>
          
@@ -204,6 +254,19 @@
            <button type="button" id="btnsend" class="btn btn-outline-info btn-sm"
            style="margin-left: 10px;">저장</button>
          </div>
+         
+         <!-- 댓글 수정창 -->
+         
+         <div class="aupdateform input-group">
+           <input type="hidden" id="idx">
+           <input type="text" id="unickname" class="form-control" style="width: 80px;" placeholder="닉네임 입력">
+           <input type="text" id="ucontent" class="form-control" style="width: 300px; 
+           margin-left: 10px" placeholder="댓글 입력">
+           
+           <button type="button" id="btnUsend" class="btn btn-outline-warning btn-sm"
+           style="margin-left: 10px;">수정</button>
+         </div>
+         
          
        </td>
      </tr>

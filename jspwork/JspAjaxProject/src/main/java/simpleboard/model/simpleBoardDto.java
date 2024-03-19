@@ -10,6 +10,7 @@ public class simpleBoardDto {
 	private String content;
 	private String pass;
 	private int readcount;
+	private int answercount; //댓글 갯수 저장 ->db연동 안되도 상관 x
 	private Timestamp writeday;
 	
 	
@@ -55,5 +56,12 @@ public class simpleBoardDto {
 	public void setWriteday(Timestamp writeday) {
 		this.writeday = writeday;
 	}
+	public int getAnswercount() {
+		return answercount;
+	}
+	public void setAnswercount(int answercount) {
+		this.answercount = answercount;
+	}
 
+	
 }

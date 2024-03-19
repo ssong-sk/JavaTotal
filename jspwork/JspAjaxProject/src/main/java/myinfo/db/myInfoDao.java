@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.tomcat.dbcp.dbcp2.PStmtKey;
+
 
 import mysql.db.DbConnect;
 
@@ -19,7 +19,7 @@ public class myInfoDao {
 	//데이터 추가
 	public void insertMyInfo(myInfoDto dto) {
 		
-		Connection conn= db.getConnection();
+		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		
 		String sql = "insert into myinfo values(null,?,?,?,?,now())";

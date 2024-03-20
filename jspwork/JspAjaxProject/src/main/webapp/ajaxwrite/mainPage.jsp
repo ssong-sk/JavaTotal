@@ -27,6 +27,11 @@
  td.subject {
    cursor: pointer;
  }
+ 
+ div.story {
+   font-family: 'Nanum Brush Script';
+ }
+ 
 
  
 </style>
@@ -236,14 +241,14 @@
       <tr>
         <td>
           <span class="title">제목</span>
-          <span class="day">날짜</span>
+          <span class="day" style="float: right;">날짜</span>
         </td>   
       </tr>
       
       <tr>
         <td>
           <span class="writer">작성자</span>
-          <span class="likes">
+          <span class="likes" style="float: right;">
             <i class="bi bi-heart" style="color: red;"></i>
             <span class="su">0</span>
           </span>

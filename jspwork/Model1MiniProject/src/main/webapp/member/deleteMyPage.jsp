@@ -1,3 +1,4 @@
+<%@page import="data.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,14 +12,33 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <div style="font-size: 13pt; line-height: 25px; margin: 15px 20px;">
-    <img src="image/b1.JPG" style="width: 200px;"><br><br>
-    <i class="bi bi-person-vcard"></i> travel sky<br>
-    <i class="bi bi-pip"></i> 02-4444-1234<br>
-    <i class="bi bi-houses"></i> 서울시 강남구 청담동 124 하늘빌딩 23F<br>
-    <i class="bi bi-envelope-paper"></i> sky@gmail.com<br>
-    <i class="bi bi-instagram"></i> @travel_sky
-  </div>
+
+ <!-- 탈퇴버튼 -->
+ <%
+  String num = request.getParameter("num");
+  String pass = request.getParameter("pass");
+  
+  MemberDao dao = new MemberDao();
+  
+  //비번 체크해서 맞으면 삭제
+  boolean b = dao.isEqualPass(num, pass);
+  
+  if(b) {
+	  dao.deleteMeber(num);
+	  %>
+	  <script type="text/javascript">
+	  alert("회원탈퇴되었습니다.")
+	  location.href="../index.jsp";
+	  </script>
+  <%}
+  else {%>
+	  <script type="text/javascript">
+	  alert("비밀번호가 맞지 않습니다");
+	  history.back();
+	  </script>  
+  <%}
+  
+ %>
 
 </body>
 </html>

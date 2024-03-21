@@ -74,18 +74,19 @@ public class MemberDao {
 		}
 	}
 	
-	//가입성공메세지 띄우기 _ 전체조회
-	public List<MemberDto> allDataMember() {
+	//가입완료하면 완료되었다는 화면
+	public List<MemberDto> getDataMember(String id) {
 		List<MemberDto> list = new ArrayList<MemberDto>();
 		
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from member order by id";
+		String sql = "select * from member where id =?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -113,5 +114,156 @@ public class MemberDao {
 		return list;
 	}
 	
+	
+	
+	//전체멤버목록 조회
+	public List<MemberDto> getAllMembers() {
+		List<MemberDto> list = new ArrayList<MemberDto>();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from member order by id desc";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MemberDto dto = new MemberDto();
+				
+				dto.setNum(rs.getString("num"));
+				dto.setName(rs.getString("name"));
+				dto.setId(rs.getString("id"));
+				dto.setPass(rs.getString("pass"));
+				dto.setHp(rs.getString("hp"));
+				dto.setAddr(rs.getString("addr"));
+				dto.setEmail(rs.getString("email"));
+				dto.setGaipday(rs.getTimestamp("gaipday"));
+				
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		
+		return list;	
+		}
+	
+	
+	//삭제
+	public void deleteMeber(String num) {
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete from member where num=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+		
+	}
+	
+	//비밀번호 체크
+	public boolean isEqualPass(String num, String pass) {
+		boolean b = false;
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from member where num=? and pass=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			pstmt.setString(2, pass);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				b = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}				
+				
+		return b;
+		
+	}
+	
+	//로그인시 아이디와 비번체크
+	public boolean isEqualIdPass(String id, String pass) {
+		boolean b = false;
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from member where id=? and pass=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pass);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				b = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}				
+				
+		return b;
+		
+	}
+	
+	public String getName(String id) {
+	      String name = null;
 
+	      Connection conn = db.getConnection();
+	      PreparedStatement pstmt = null;
+	      ResultSet rs = null;
+
+	      String sql = "select name from member where id=?";
+
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, id);
+	         rs = pstmt.executeQuery();
+
+	         if (rs.next()) {
+	            name = rs.getString("name");
+	         }
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         db.dbClose(rs, pstmt, conn);
+	      }
+	      return name;
+
+       }
 }

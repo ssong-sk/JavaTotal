@@ -22,9 +22,10 @@
 <%
 //프로젝트 경로
 String root = request.getContextPath();
+String id = request.getParameter("id");
 
 MemberDao dao = new MemberDao();
-List<MemberDto> list = dao.allDataMember();
+List<MemberDto> list = dao.getDataMember(id);
 %>
 <body>
 	<!-- 1.회원가입이 성공되면 gaipSuccess 페이지로 가기
@@ -44,9 +45,9 @@ List<MemberDto> list = dao.allDataMember();
 		<tr>
         <td colspan="1" align="center">
           <button type="button" class="btn btn-outline-info" style="width: 100px;"
-          onclick="location.href='<%=root%>/index.jsp?main=login/loginForm.jsp'">로그인</button>
+          onclick="location.href='<%=root%>/index.jsp?main=login/loginMain.jsp'">로그인</button>
           <button type="button" class="btn btn-outline-danger" style="width: 100px;"
-          onclick="location.href='<%=root%>'">메인</button>
+          onclick="location.href='index.jsp?main=member/myPage.jsp'">마이페이지</button>
         </td>
       </tr>
        </table>

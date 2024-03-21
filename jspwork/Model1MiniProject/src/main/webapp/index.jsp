@@ -19,8 +19,8 @@
     width: 100%;
     font-family: 'Nanum Pen Script';
     height: 80px;
-    line-height: 80px;
-    font-size: 30pt;
+    line-height: 10px;
+    font-size: 20pt;
     text-align: center;
     
   }
@@ -35,16 +35,16 @@
   }
   
   div.info {
-    width: 300px;
-    height: 200px;
+    width: 310px;
+    height: 450px;
     line-height: 10px;
     font-size: 15pt;
     font-family: 'Nanum Pen Script';
-    left: 50px;
-    top: 200px;
-    border: 0px groove purple;
+    left: 130px;
+    top: 140px;
+    border: 1px solid gray;
     border-radius: 30px;
-    padding: 20px 20px;
+    padding: 30px 30px;
   }
   
   div.main {
@@ -53,8 +53,8 @@
     font-size: 15pt;
     border: 0px groove purple;
     font-family: 'Nanum Pen Script';
-    left: 400px;
-    top: 200px;
+    left: 550px;
+    top: 100px;
   }
 </style>
 </head>

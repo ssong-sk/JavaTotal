@@ -11,6 +11,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+   //세션에 저장된 loginok 가져오기
+   String loginok=(String)session.getAttribute("loginok"); //오브젝트이기때문에 타입 맞춰줘야한다.
+   
+   if(loginok==null) //로그아웃상태 
+   {%>
+	   <jsp:include page="loginForm.jsp"/>  
+   <%}
+   
+   else {%>
+	   <jsp:include page="logoutForm.jsp"/>    
+   <%}
+
+%>
 
 </body>
 </html>

@@ -18,11 +18,11 @@
   <img alt="" src="<%=root%>/image/sky2.jpg"  style="width: 790px; height: 300px;">
   <br>
   <br>
-  <h3>지역별 여행지 둘러보기</h3>
+  <h4>지역별 여행지 둘러보기</h4>
   <img alt="" src="<%=root%>/image/travel1.JPG" style="width: 390px; height: 200px;">
   <img alt="" src="<%=root%>/image/travel2.JPG" style="width: 390px; height: 200px;"><br>
-  <img alt="" src="<%=root%>/image/travel3.JPG" style="width: 390px; height: 200px;">
-  <img alt="" src="<%=root%>/image/travel4.JPG" style="width: 390px; height: 200px;">
+  <img alt="" src="<%=root%>/image/travel3.JPG" style="width: 390px; height: 200px; margin-bottom: 0px;">
+  <img alt="" src="<%=root%>/image/travel4.JPG" style="width: 390px; height: 200px; margin-bottom: -10px;">
   
 </body>
 </html>

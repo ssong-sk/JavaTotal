@@ -16,7 +16,7 @@
 %>
 <body>
   <!-- a태그안을 클릭하면 메인페이지로 이동 -->
-  <a href="<%=root %>" style="color: black; text-decoration: none;"><img alt="" src="<%=root%>/image/b1.JPG" style="width: 100px;">
-  Travel Sky</a>
+  <a href="<%=root %>" style="color: black; text-decoration: none;"><img alt="" src="<%=root%>/image/logo1.PNG" style="width: 280px; margin: 20px 1050px;">
+  </a>
 </body>
 </html>

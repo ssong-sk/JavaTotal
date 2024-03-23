@@ -15,7 +15,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
-
+<style type="text/css">
+  
+</style>
 <script type="text/javascript">
   function delfunc(num) {
 	  //alert(num);
@@ -44,6 +46,9 @@
   MemberDao dao = new MemberDao();
   List<MemberDto> list = dao.getAllMembers();
   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+  
+  String loginok=(String)session.getAttribute("loginok");
+  String myid=(String)session.getAttribute("myid");
 %>
 <body>
 
@@ -52,14 +57,19 @@
     <h4>마이페이지</h4>
       <table class="table table-bordered">
         <%
-          for(MemberDto dto:list) {%>
+          for(MemberDto dto:list) {
+          
+        	  if(loginok!=null && myid.equals(dto.getId())){
+          
+          %>
         	  <tr>
         	    <td rowspan="7" align="center" valign="middle">
         	      <img src="image/b1.JPG" id="mainimg" style="width: 250px;">
         	    </td>
         	    <td style="width:300px;">회원명: <%=dto.getName() %></td>
         	    <td rowspan="7" style="width: 200px;"align="center"  valign="middle">
-        	      <button type="button" class="btn btn-outline-info">수정</button>
+        	      <button type="button" class="btn btn-outline-info"
+        	      onclick="location.href='index.jsp?main=member/updatepassform.jsp?num=<%=dto.getNum()%>'">수정</button>
         	      <button type="button" class="btn btn-outline-danger" onclick="delfunc('<%=dto.getNum()%>')">탈퇴</button>
         	    </td>
         	  </tr>  
@@ -90,6 +100,8 @@
         	  
           <%}
         %>
+        
+         <%  }%>
       </table>
   </div>
   

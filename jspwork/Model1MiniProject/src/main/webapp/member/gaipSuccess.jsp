@@ -47,7 +47,7 @@ List<MemberDto> list = dao.getDataMember(id);
           <button type="button" class="btn btn-outline-info" style="width: 100px;"
           onclick="location.href='<%=root%>/index.jsp?main=login/loginMain.jsp'">로그인</button>
           <button type="button" class="btn btn-outline-danger" style="width: 100px;"
-          onclick="location.href='index.jsp?main=member/myPage.jsp'">마이페이지</button>
+          onclick="location.href='index.jsp'">메인</button>
         </td>
       </tr>
        </table>

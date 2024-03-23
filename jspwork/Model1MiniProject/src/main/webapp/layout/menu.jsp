@@ -20,6 +20,11 @@
     
 <title>Insert title here</title>
 </head>
+
+<%
+  String myid=(String)session.getAttribute("myid");
+  String loginok=(String)session.getAttribute("loginok");
+%>
 <body>
 <%--   <a href="<%=root%>/">메인</a>&nbsp;&nbsp;&nbsp; --%>
 <%--   <a href="<%=root%>/">로그인</a>&nbsp;&nbsp;&nbsp; --%>
@@ -48,8 +53,15 @@
 					</li>
 					<li><a href="#">회원정보</a>
 					    <ul class="sub-menu">
-					        <li><a href="index.jsp?main=login/loginMain.jsp"><i class="icon-gift"></i> 로그인</a></li>
-							<li><a href="<%=root%>/index.jsp?main=member/addForm.jsp"><i class="icon-wrench"></i> 회원가입</a></li>
+					        <li><a href="index.jsp?main=member/addForm.jsp"><i
+										class="icon-wrench"></i> 회원가입</a></li>
+								
+								<%
+								  if(loginok!=null && myid.equals("admin")){%>
+									  
+									  <li><a href="index.jsp?main=member/memberList.jsp"><i class="icon-credit-card"></i> 회원목록</a></li>
+								  <%}
+								%>
 							<li><a href="<%=root%>/index.jsp?main=member/memberList.jsp"><i class="icon-credit-card"></i> 회원목록</a></li>
 							<li><a href="index.jsp?main=member/myPage.jsp"><i class="icon-gift"></i> 마이페이지</a></li>
 						</ul>
@@ -57,7 +69,7 @@
 					<li class="parent">
 						<a href="#">방명록</a>
 						<ul class="sub-menu">
-							<li><a href="#">회원방명록</a></li>
+							<li><a href="index.jsp?main=memberguest/guestlist.jsp">회원방명록</a></li>
 							<li><a href="#">Medium Image</a></li>
 						</ul>
 					</li>

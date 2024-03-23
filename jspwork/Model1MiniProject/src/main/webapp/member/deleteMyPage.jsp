@@ -25,6 +25,12 @@
   
   if(b) {
 	  dao.deleteMeber(num);
+	  
+	  //세션삭제
+	  session.removeAttribute("loginok");
+	  session.removeAttribute("myid");
+	  session.removeAttribute("saveok");
+	  
 	  %>
 	  <script type="text/javascript">
 	  alert("회원탈퇴되었습니다.")

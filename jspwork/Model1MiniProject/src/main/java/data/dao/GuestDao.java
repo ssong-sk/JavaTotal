@@ -107,4 +107,7 @@ public class GuestDao {
 		return list;
 	}
 	
+	public void getDataMember(String num) {
+		
+	}
 }

@@ -20,7 +20,7 @@
   <a href="<%=root %>" style="color: black; text-decoration: none;"><img alt="" src="<%=root%>/image/logo1.PNG" style="width: 280px; margin: 20px 1050px;">
   </a>
   
-  <div style="float: right; padding-right: 50px;">
+  <div style="float: right; padding-right: 100px; margin: 50px 100px;">
      <%
        //로그인 세션얻기
        String loginok=(String)session.getAttribute("loginok");
@@ -31,15 +31,15 @@
        String name=dao.getName(myid);
        
        if(loginok==null){%>
-    	   <button type="button" class="btn btn-success"
+    	   <button type="button" class="btn btn-outline-info"
     	   style="width: 100px;"
-    	   onclick="location.href='index.jsp?main=login/loginform.jsp'">Login</button>
+    	   onclick="location.href='index.jsp?main=login/loginForm.jsp'">Login</button>
        <%}else{%>
     	   
     	   <b><%=name %>님 로그인중..</b>
-    	   <button type="button" class="btn btn-danger"
+    	   <button type="button" class="btn btn-outline-danger"
     	   style="width: 100px;"
-    	   onclick="location.href='login/logoutaction.jsp'">Logout</button>
+    	   onclick="location.href='login/logoutAction.jsp'">Logout</button>
        <%}
      %>
    </div>

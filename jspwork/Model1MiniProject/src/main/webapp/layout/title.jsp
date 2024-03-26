@@ -22,7 +22,7 @@
   </a>
   </div>
   
-  <div style="float: right; padding-right: 100px; margin: -120px 100px;">
+  <div style="float: right; padding-right: 100px; margin: 50px 100px;">
      <%
        //로그인 세션얻기
        String loginok=(String)session.getAttribute("loginok");

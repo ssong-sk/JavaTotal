@@ -1,3 +1,5 @@
+<%@page import="data.dao.AnswerGuestDao"%>
+<%@page import="data.dto.AnswerGuestDto"%>
 <%@page import="data.dao.MemberDao"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="data.dto.GuestDto"%>
@@ -12,6 +14,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
@@ -57,6 +60,7 @@
 		  })
 		
 	});
+  
 	 
 	 //삭제
 	 $("i.del").click(function () {
@@ -72,7 +76,89 @@
 		 }
 		
 	})
-})
+	
+	//방명록 댓글부분은 무조건 처음에는 안보이게 처리
+	$("div.answer").hide();
+	
+	//방명록 댓글 클릭 시 댓글 부분이 보였다 안보였다 하기
+	 $("span.answer").click(function () {
+		
+		 //$("div.answer").toggle();
+		 $(this).parent().find("div.answer").toggle(); 
+	
+	   });
+	
+	
+	//댓글삭제
+	   $("i.adel").click(function(){
+		   
+		  
+		   var a=confirm("삭제하려면 [확인]을 눌러주세요");
+		   
+		   if(a){
+			   
+			   var idx=$(this).attr("idx");
+			   //alert(idx);
+			   
+			   $.ajax({
+				   type:"get",
+				   dataType:"html",
+				   url:"memberguest/deleteanswer.jsp",
+				   data:{"idx":idx},  
+				   success:function(){
+					   location.reload();//새로고침
+				   }
+			   })
+			   
+		   }
+		   
+		   
+	   });
+	
+	  //댓글 수정 누르면 모달창 띄우기
+	  $("i.aedit").click(function () {
+		
+		  var idx = $(this).attr("idx");
+		  //alert(idx);
+		  
+		  $("#idx").val(idx);
+		  
+		  $.ajax({
+			
+			  type : "get",
+			  dataType : "json",
+			  url : "memberguest/answercontent.jsp",
+			  data : {"idx":idx},
+			  success : function (res) {
+				 $("#idx").val(res.idx);
+				 $("#ucontent").val(res.story);
+			}
+		  })
+		  
+	})
+	
+
+	   //댓글수정하기
+	   $("#btnupdate").click(function(){
+		   
+		  var idx= $("#idx").val();
+		  var content=$("#ucontent").val();
+		  
+		  //alert(idx+","+content);
+		  
+		  $.ajax({
+			  type:"post",
+			  url:"memberguest/updateanswer.jsp",
+			  dataType:"html",
+			  data:{"idx":idx,"content":content},
+			  success:function(){
+				  location.reload();
+			  }
+		  })
+	   });
+	
+  });
+	   
 </script>
 </head>
 <body>
@@ -197,10 +283,97 @@
     	  <!-- 댓글&추천 -->
     	  <tr>
     	    <td>
-    	      <span class="answer" style="cursor: pointer;">댓글 0</span>
+					<%
+					//각 방명록에 달린 댓글 목록 가져오기
+					AnswerGuestDao adao = new AnswerGuestDao();
+					List<AnswerGuestDto> alist = adao.getAllAnswers(dto.getNum());
+					%> 
+			  
+			  <span class="answer" style="cursor: pointer;">댓글 <%=alist.size() %></span>
     	      <span class="likes" style="margin-left: 20px; cursor: pointer;" num=<%=dto.getNum() %>>추천</span>
     	      <span class="chu"><%=dto.getChu() %></span>
     	      <i class="bi bi-heart-fill" style="font-size: 0px; color: red;"></i>
+    	      
+    	      <!-- 댓글 -->
+    	      <div class="answer">
+    	        <%
+    	          if(loginok!=null) { //로그아웃 상태이면 입력은 보이지않음%>
+    	        	  <div class="answerform">
+    	        	    <form action="memberguest/answerInsert.jsp" method="post">
+    	        	     <input type="hidden" name="num" value="<%=dto.getNum()%>">
+    	        	     <input type="hidden" name="myid" value="<%=myid%>">
+    	        	     <input type="hidden" name="currentPage" value="<%=currentPage%>">
+    	        	       <table>
+    	        	         <tr>
+    	        	           <td width="500">
+    	        	             <textarea style="width: 480px; height: 70px;" name="content"
+    	        	             required="required" class="form-control"></textarea>
+    	        	           </td>
+    	        	           <td>
+    	        	             <button type="submit" class="btn btn-info" 
+    	        	             style="width: 70px; height: 70px;">등록</button>
+    	        	           </td>
+    	        	         </tr>
+    	        	       </table>
+    	        	    </form>
+    	        	  </div>  
+    	         <%}
+    	        %>
+    	        
+    	          <div class="answerlist">
+    	            <table style="width: 500px;" >
+    	               <%
+    	                 for(AnswerGuestDto adto:alist)
+    	                 {%>
+    	                	 <tr>
+    	                	   <td>
+    	                	     <i class="bi bi-person-circle fs-2" style="color: gray;"></i>
+    	                	   </td>
+    	                	   <td>
+    	                	   
+    	                	   
+    	                	      <%
+    	                	        //작성자명
+    	                	        String aname=mdao.getName(adto.getMyid());
+    	                	      %>
+    	                	      <br>
+    	                	      <b><%=aname %></b>
+    	                	      &nbsp;
+    	                	      
+    	                	      <%
+    	                	        //글작성자와 댓글작성자가 같을경우
+    	                	        if(dto.getMyid().equals(adto.getMyid())){%>
+    	                	        	
+    	                	        	<span style="color: red;">작성자</span>
+    	                	        <%}
+    	                	      %>
+    	                	      
+    	                	      <span style="font-size: 9pt; color: gray; margin-left: 20px;">
+    	                	         <%=sdf.format(adto.getWriteday()) %>
+    	                	      </span>
+    	                	      
+    	                	      
+    	                	      <!-- 댓글 수정삭제는 본인만 보이게 -->
+    	                	      <%
+    	                	        if(loginok!=null && adto.getMyid().equals(myid)){%>
+    	                	        	
+    	                	        	<i class="aedit bi bi-pencil-square" idx="<%=adto.getIdx()%>" 
+    	                	        	data-bs-toggle="modal" data-bs-target="#myModal"></i>
+    	                	      		<i class="bi bi-trash adel" idx="<%=adto.getIdx()%>"></i>
+    	                	        <%}
+    	                	      %>
+    	                	      
+    	                	      <br>
+    	                	      <span style="font-size: 10pt;"><%=adto.getContent().replace("\n", "<br>") %></span>
+    	                	      
+    	                	   </td>
+    	                	 </tr>
+    	                 <%}
+    	               %>
+    	            </table>
+    	          </div>
+    	      </div>
+    	      
     	    </td>
     	  </tr>
     	</table>
@@ -250,5 +423,35 @@
  
   
 </div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">댓글수정</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="updateform d-inline-flex">
+          <input type="hidden" id="idx">
+          <input type="text" id="ucontent" class="form-control" style="width: 300px;">
+          <button type="button" class="btn btn-outline-info" id="btnupdate">댓글수정</button>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">수정완료</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

@@ -17,10 +17,12 @@
 %>
 <body>
   <!-- a태그안을 클릭하면 메인페이지로 이동 -->
+  <div class="d-inline-flex">
   <a href="<%=root %>" style="color: black; text-decoration: none;"><img alt="" src="<%=root%>/image/logo1.PNG" style="width: 280px; margin: 20px 1050px;">
   </a>
+  </div>
   
-  <div style="float: right; padding-right: 100px; margin: 50px 100px;">
+  <div style="float: right; padding-right: 100px; margin: -120px 100px;">
      <%
        //로그인 세션얻기
        String loginok=(String)session.getAttribute("loginok");

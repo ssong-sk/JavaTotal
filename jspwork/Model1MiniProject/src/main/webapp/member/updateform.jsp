@@ -85,7 +85,7 @@
 	   <table class="table table-bordered" >
 	      <caption align="top"><b>마이정보수정</b></caption>
 	      <tr>
-	        <th width="100" class="table-success">아이디</th>
+	        <th width="100" class="table-info">아이디</th>
 	        <td>
 	        	<b><%=dto.getId() %></b>
 	          </div>
@@ -94,7 +94,7 @@
 	      
 	      
 	      <tr>
-	        <th width="100" class="table-success">이름</th>
+	        <th width="100" class="table-info">이름</th>
 	        <td>
 	          <input type="text" name="name" class="form-control" required="required" style="width: 120px;"
 	          value="<%=dto.getName()%>">
@@ -102,21 +102,21 @@
 	      </tr>
 	      
 	      <tr>
-	        <th width="100" class="table-success">핸드폰</th>
+	        <th width="100" class="table-info">핸드폰</th>
 	        <td>
 	          <input type="text" name="hp" class="form-control" required="required" style="width: 180px;"
 	          value="<%=dto.getHp()%>">
 	        </td>
 	      </tr>
 	      <tr>
-	        <th width="100" class="table-success">주소</th>
+	        <th width="100" class="table-info">주소</th>
 	        <td>
 	          <input type="text" name="addr" class="form-control" required="required" style="width: 330px;"
 	          value="<%=dto.getAddr()%>">
 	        </td>
 	      </tr>
 	      <tr>
-	        <th width="100" class="table-success">이메일</th>
+	        <th width="100" class="table-info">이메일</th>
 	        <td>
 	         <div class="d-inline-flex">
 	          <input type="text" name="email1" class="form-control" required="required"

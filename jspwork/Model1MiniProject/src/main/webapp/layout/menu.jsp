@@ -48,7 +48,7 @@
 						<ul class="sub-menu">
 							<li><a href="#"><i class="icon-wrench"></i> 고객게시판</a></li>
 							<li><a href="#"><i class="icon-credit-card"></i> 이미지게시판</a></li>
-							<li><a href="#"><i class="icon-gift"></i> 스마트게시판</a></li>
+							<li><a href="index.jsp?main=smartboard/boardlist.jsp"><i class="icon-gift"></i> 스마트게시판</a></li>
 						</ul>
 					</li>
 					<li><a href="#">회원정보</a>

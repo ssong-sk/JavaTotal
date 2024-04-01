@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 <style type="text/css">
   .img {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -19,40 +19,41 @@
 }
 
   #subject {
-    position: absolute;
+    position: relative;
     bottom: 0;
-    left: 0;
     width: 100%;
-    top: 168%;
-    left: 14%;
+    padding-top: 4.5%;
     font-size: 12px;
     color: #618E6E;
     }
     
   
   #addr {
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
     font-size: 0.6em;
-    top: 168%;
-    left: 18.5%;
+    padding-top: 4.6%;
+    left: -16.5%;
     color: gray
     } 
     
    #call {
-    position: absolute;
-    top: 167%;
-    left: 82%;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    left: 11%;
+    padding-top: 2.6%;
     line-height: 0%;
     text-align: right;
    }  
     
    #snsimg{
-    position: absolute;
-    top: 171%;
-    left: 82.5%;
+    position: relative;
+    width: 100%;
+    left: 4.5%;
+    padding-top: 4.6%;
    } 
 </style>
 </head>

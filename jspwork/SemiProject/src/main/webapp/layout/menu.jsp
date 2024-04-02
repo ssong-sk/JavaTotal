@@ -12,7 +12,7 @@
 <style type="text/css">
   #primary_nav_wrap
 {
-	margin-top:15px
+	margin-top:15px;
 }
 
 #primary_nav_wrap ul
@@ -21,7 +21,7 @@
 	position:relative;
 	float:left;
 	margin:0;
-	padding:0
+	padding:0;
 }
 
 #primary_nav_wrap ul a
@@ -40,7 +40,7 @@
 	position:relative;
 	float:left;
 	margin:0;
-	padding:0
+	padding:0;
 }
 
 
@@ -48,29 +48,30 @@
 #primary_nav_wrap ul ul
 {
 	display:none;
-	position:absolute;
+	position: relative;
 	top:100%;
 	left:0;
 	background:#fff;
-	padding:0
+	padding:0;
+	z-index: 9999;
 }
 
 #primary_nav_wrap ul ul li
 {
 	float:none;
-	width:100px
+	width:100px;
 }
 
 #primary_nav_wrap ul ul a
 {
 	line-height:120%;
-	padding:10px 15px
+	padding:10px 15px;
 }
 
 
 #primary_nav_wrap ul li:hover > ul
 {
-	display:block
+	display:block;
 }
 
 #login_links {

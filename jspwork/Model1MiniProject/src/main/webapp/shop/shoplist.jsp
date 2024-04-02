@@ -19,11 +19,11 @@
    width: 150px;
    height: 200px;
    border: 1px solid gray;
-   margin: 5px; 
+   
    }
    
    .shoptable{
-      padding: 5px;
+     
       height: 150px; 
    }
    
@@ -31,6 +31,22 @@
       text-decoration: none;
    }
 </style>
+
+<script type="text/javascript">
+
+  $(function(){
+	 
+	  $("a.goDetail").click(function(){
+		  var shopnum = $(this).attr("shopnum");
+		  //alert(shopnum);
+		  
+		  //디테일 페이지로 이동
+		  location.href = 'index.jsp?main=shop/detailpage.jsp?shopnum='+shopnum;
+	  })
+	  
+  })
+  
+</script>
 </head>
   <%
     ShopDao dao = new ShopDao();
@@ -111,7 +127,7 @@
             	 </td> 
             	 
             	   <%
-            	     if((i+1)%4==0) {%>
+            	     if((i+1)%5==0) {%>
             	    	 </tr><tr>
             	     <%}
             	   
@@ -164,7 +180,7 @@
             	 </td> 
             	 
             	   <%
-            	     if((i+1)%4==0) {%>
+            	     if((i+1)%5==0) {%>
             	    	 </tr><tr>
             	     <%}
             	    i++;
@@ -217,7 +233,7 @@
             	 </td> 
             	 
             	   <%
-            	     if((i+1)%4==0) {%>
+            	     if((i+1)%5==0) {%>
             	    	 </tr><tr>
             	     <%}
             	    i++;
@@ -270,7 +286,7 @@
             	 </td> 
             	 
             	   <%
-            	     if((i+1)%4==0) {%>
+            	     if((i+1)%5==0) {%>
             	    	 </tr><tr>
             	     <%}
             	    i++;
@@ -323,7 +339,7 @@
             	 </td> 
             	 
             	   <%
-            	     if((i+1)%4==0) {%>
+            	     if((i+1)%5==0) {%>
             	    	 </tr><tr>
             	     <%}
             	    i++;
@@ -376,7 +392,7 @@
             	 </td> 
             	 
             	   <%
-            	     if((i+1)%4==0) {%>
+            	     if((i+1)%5==0) {%>
             	    	 </tr><tr>
             	     <%}
             	    i++;

@@ -77,7 +77,19 @@
       stroke-dasharray: 125.6;
       transform: rotate(-90deg);
     }
+    
+      .swiper-button-next, .swiper-button-prev{
+       color: white;
+       border-radius: 30px;
+       width: 60px;
+       height: 60px;
+       background-color: rgba(33, 33, 33, 0.5);
+       
+    }
   </style>
+  
+  
+  
 </head>
 <%
     //1.íë¡ì í¸ ì ë ê²½ë¡ ì¤ì 
@@ -89,9 +101,11 @@
   <!-- Swiper -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img style="width: 100%; height: 550px; display: block;" src="<%=root%>/image/banner2.PNG"> </div>
-      <div class="swiper-slide"><img style="width: 100%; height: 550px; display: block;" src="<%=root%>/image/banner3.jpg"></div>
-      <div class="swiper-slide"><img style="width: 100%; height: 550px; display: block;" src="<%=root%>/image/banner4.jpg"></div>
+      <div class="swiper-slide"><img style="width: 100%; height: 550px; display: block;" src="<%=root%>/image/main00.jpg"> </div>
+      <div class="swiper-slide"><img style="width: 100%; height: 550px; display: block;" src="<%=root%>/image/main01.jpg"></div>
+      <div class="swiper-slide"><img style="width: 100%; height: 550px; display: block;" src="<%=root%>/image/main02.jpg"></div>
+      <div class="swiper-slide"><img style="width: 100%; height: 550px; display: block;" src="<%=root%>/image/main03.jpg"></div>
+      <div class="swiper-slide"><img style="width: 100%; height: 550px; display: block;" src="<%=root%>/image/main04.jpg"></div>
 
     </div>
     <div class="swiper-button-next"></div>
@@ -130,7 +144,7 @@
       on: {
         autoplayTimeLeft(s, time, progress) {
           progressCircle.style.setProperty("--progress", 1 - progress);
-          progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+          
         }
       }
     });

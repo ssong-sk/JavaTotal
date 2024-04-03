@@ -38,6 +38,18 @@
   }
 </style>
 
+<script type="text/javascript">
+
+   $(function(){
+	  
+	   $("div.cart").click(function(){
+		   location.href='index.jsp?main=shop/mycart.jsp';
+	   })
+	   
+   })
+   
+</script>
+
 </head>
 <%
    //프로젝트 경로 -> //root라는 절대 경로 설정(절대경로 테스트는 webapp에 index.jsp에 오른쪽마우스로 run as해서 확인가능)

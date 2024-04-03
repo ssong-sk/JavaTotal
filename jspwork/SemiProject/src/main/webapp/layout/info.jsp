@@ -50,7 +50,7 @@
    }  
     
    #snsimg{
-    position: relative;
+    /* position: relative; */
     width: 100%;
     left: 4.5%;
     padding-top: 4.6%;
@@ -62,7 +62,7 @@
    String root = request.getContextPath();  
   %>
 <body>
-   <div class="d-inline-flex img;" style="height: ; width: 100%">
+   <div class="d-inline-flex img;" style="width: 100%">
      <img src="<%=root%>/image/logo1.png" style=" width: 85px; margin-left: 10%; margin-top: 50px; margin-bottom: 30px;">
      
      <div id="subject">
@@ -80,8 +80,10 @@
       <span style="font-size: 0.6em; color: gray;">콜센터 _ AM 09:00~PM 18:00</span>
     </div>
     
+    
+    
     <div id="snsimg">
-      <a href="#"><img alt="" src="<%=root%>/image/sns2.png" style="width: 20px;"></a>
+      <a href="#" style="margin-left: 22%;"><img alt="" src="<%=root%>/image/sns2.png" style="width: 20px;"></a>
       <a href="#"><img alt="" src="<%=root%>/image/sns4.png" style="width: 20px;"></a>
       <a href="#"><img alt="" src="<%=root%>/image/sns6.png" style="width: 20px;"></a>
       <a href="#"><img alt="" src="<%=root%>/image/sns3.png" style="width: 20px;"></a>

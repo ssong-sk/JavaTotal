@@ -152,6 +152,7 @@
       </tr>
       
       <%
+        //게시물이 없는 경우
         if(totalCount==0) {%>
           <tr>
             <td colspan="4" align="center">
@@ -160,6 +161,9 @@
           </tr>
         	
         <%}
+        
+        //내용 넣으면 각 주제별로 게시물 추출
+        
         else {
         	for(smartDto dto:list) {%>
         		<tr>

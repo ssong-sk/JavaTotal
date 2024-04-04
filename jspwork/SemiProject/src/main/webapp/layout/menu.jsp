@@ -25,6 +25,7 @@
 	float:left;
 	margin:0;
 	padding:0;
+	z-index: 9999;
 }
 
 #primary_nav_wrap ul a
@@ -92,7 +93,7 @@
 <ul>
   <li><a href="#">소개</a>
     <ul>
-      <li><a href="#">공지사항</a></li>
+      <li><a href="index.jsp?main=noticeboard/noticeList.jsp">공지사항</a></li>
       <li><a href="#">소개글</a></li>
       <li><a href="#">이벤트</a></li>
     </ul>

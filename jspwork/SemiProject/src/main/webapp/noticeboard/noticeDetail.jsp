@@ -39,9 +39,16 @@
    <div style="margin: 100px 200px; width: 800px; margin-left: 25%;">
      <table class="table">
       <caption align="top"><h5><b><%=dto.getN_subject() %></b></h5></caption>
-         
+         <tr>
+           <td>
+             <b>작성자 : <%=dto.getN_subject()%></b><br>
+             조회 : <%=dto.getN_readcount() %>
+             
+             
+           </td>
+         </tr>
 				
-			</tr>
+			
 		</table> 
    </div>
 </body>

@@ -18,6 +18,7 @@
 <jsp:useBean id="dao" class="data.dao.smartDao"/>
 <jsp:useBean id="dto" class="data.dto.smartDto"/>
 <jsp:setProperty property="*" name="dto"/>
+
 <%
   dao.updateSmart(dto);
 

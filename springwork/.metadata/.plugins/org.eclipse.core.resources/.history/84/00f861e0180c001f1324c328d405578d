@@ -1,0 +1,17 @@
+package spring.day0507.rainy;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class FormDataController {
+	
+	
+
+		
+		@GetMapping("/shop/fomr1")
+		public String form1() {
+			return "day0507/form1";
+		}
+
+
+}

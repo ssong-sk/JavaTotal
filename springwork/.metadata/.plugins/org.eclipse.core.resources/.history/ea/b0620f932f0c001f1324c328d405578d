@@ -1,0 +1,10 @@
+package spring.day0507.rainy;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class PhotoUploadController {
+	
+	//업로드 폼1으로 가기
+
+}

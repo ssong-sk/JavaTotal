@@ -1,0 +1,20 @@
+package spring.day0507.rainy;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/shop")
+public class FormDataController {
+	
+	
+        @GetMapping("/shop/form1")
+		public String form1() {
+			return "day0507/form1";
+		}
+
+        
+        @PostMapping
+}

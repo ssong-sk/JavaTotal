@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="spring.db.carmember.CarMemberDao">
+   <!-- insert -->
+   <insert id="insertCarMember" parameterType="cmdto">
+     insert into carmember (name, hp, addr, gaipday) values(#{name}, #{hp}, #{addr}, now())
+   </insert>
+   
+   <!-- 전체조회 list -->
+   <select id="allDataCarMember" resultType="cmdto">
+     select * from carmember order by num desc
+   </select>
+   
+   <!-- 전체 갯수 얻기 -->
+   <select id="totalCountMember" resultType="int">
+     select count(*) from carmember
+   </select>
+ </mapper>

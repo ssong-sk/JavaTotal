@@ -43,16 +43,16 @@
 			<c:forEach var="dto" items="${list }" varStatus="i">
               <tr>
                <td align="center" valign="middle">${i.count }</td>
-               <td align="center" valign="middle"><b>${dto.name }</b></td>
-               <td align="center" valign="middle"><b>${dto.hp }</b></td>
-               <td align="center" valign="middle"><b>${dto.addr }</b></td>
+               <td align="center" valign="middle">${dto.name }</td>
+               <td align="center" valign="middle">${dto.hp }</td>
+               <td align="center" valign="middle">${dto.addr }</td>
                <td align="center" valign="middle">${dto.gaipday }</td>
              
                <td align="center" valign="middle">
                 <button type="button" class="btn btn-outline-info"
-                onclick="location.href=''">수정</button>
+                onclick="location.href='updateform?num=${dto.num}'">수정</button>
                 <button type="button" class="btn btn-outline-danger"
-                onclick="location.href=''">삭제</button>
+                onclick="location.href='delete?num=${dto.num}'">삭제</button>
                </td>
              </tr>
             </c:forEach>

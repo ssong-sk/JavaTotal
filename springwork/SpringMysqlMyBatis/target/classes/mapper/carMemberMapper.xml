@@ -18,4 +18,20 @@
    <select id="totalCountMember" resultType="int">
      select count(*) from carmember
    </select>
+   
+   <!--num가져오기 수정폼  -->
+   <select id="selectOneOfCarMemeber" parameterType="String" resultType="cmdto">
+     select * from carmember where num=#{num}
+   </select>
+   
+   <!-- 수정 -->
+   <update id="updateOfCarMember" parameterType="cmdto">
+     update carmember set name=#{name}, hp=#{hp}, addr=#{addr} where num=#{num}
+   </update>
+   
+   <!-- 삭제 -->
+   <delete id="deleteOfCarMember" parameterType="String">
+     delete from carmember where num=#{num}
+   </delete>
+   
  </mapper>

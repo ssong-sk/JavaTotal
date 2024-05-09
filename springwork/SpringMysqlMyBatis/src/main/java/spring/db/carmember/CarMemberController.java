@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import spring.db.may.SpringCarDto;
 
@@ -51,5 +52,33 @@ public class CarMemberController {
 		
 		return "redirect:list"; //위에 이미 carlist로 가는 메서드를 만들었기 때문에 list로 바로 이동하게 해야한다.
 	}
+	
+	
+	//수정폼 나타내기
+	@GetMapping("/updateform")
+	public String uform(@RequestParam String num, Model model) {
+		
+		CarMemberDto dto = memberInter.getOneData(num);
+		model.addAttribute("dto", dto);
+		
+		return "carmember/updateform";
+	}
+	
+	//수정하기
+	@PostMapping("/update")
+	public String update(@ModelAttribute CarMemberDto dto) {
+		
+		memberInter.updateCarMember(dto);
+		
+		return "redirect:list";
+	}
 
+	//삭제하기
+	@GetMapping("/delete")
+	public String delete(@RequestParam String num) {
+		
+		memberInter.deleteMember(num);
+		
+		return "redirect:list";
+	}
 }

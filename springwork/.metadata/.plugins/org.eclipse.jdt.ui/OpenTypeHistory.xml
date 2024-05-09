@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=SpringMysqlMyBatis/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.db.may{SpringCarDaoInter.java[SpringCarDaoInter" modifiers="513" timestamp="1715135088839"/>
+    <typeInfo handle="=SpringMysqlMyBatis/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.db.may{SpringCarDaoInter.java[SpringCarDaoInter" modifiers="513" timestamp="1715139024056"/>
+    <typeInfo handle="=SpringMysqlMyBatis/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.db.carmember{CarMemberDaoInter.java[CarMemberDaoInter" modifiers="513" timestamp="1715150526141"/>
+    <typeInfo handle="=SpringMysqlMyBatis/C:\/Program Files\/Java\/jdk-17\/lib\/jrt-fs.jar`java.desktop=/maven.pomderived=/true=/&lt;javax.swing.text(Caret.class[Caret" modifiers="1537" timestamp="1700480015818"/>
 </typeInfoHistroy>

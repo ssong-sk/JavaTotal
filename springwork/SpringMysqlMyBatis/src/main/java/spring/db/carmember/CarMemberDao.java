@@ -33,4 +33,25 @@ public class CarMemberDao implements CarMemberDaoInter {
 		return sesstion.selectOne("totalCountMember");
 	}
 
+	//num값 넘기기 -> 수정폼
+	@Override
+	public CarMemberDto getOneData(String num) {
+		// TODO Auto-generated method stub
+		return sesstion.selectOne("selectOneOfCarMemeber", num);
+	}
+	
+    //수정하기
+	@Override
+	public void updateCarMember(CarMemberDto dto) {
+		// TODO Auto-generated method stub
+		sesstion.update("updateOfCarMember", dto);
+	}
+    
+	//삭제
+	@Override
+	public void deleteMember(String num) {
+		// TODO Auto-generated method stub
+		sesstion.delete("deleteOfCarMember", num);
+	}
+
 }

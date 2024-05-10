@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="BoardDao">
+ 
+   <!-- 토탈갯수 -->
+   <select id="totalCountOfBoard" resultType="int">
+     select count(*) from sboard
+   </select>
+   
+   <!-- 페이징 번호당 몇개의 게시물이 노출되는지 -->
+   <select id="maxNumOfBoard" resultType="int">
+     select ifnull(max(num),0) from sboard
+   </select>
+   
+   <!-- insert -->
+   <insert id="insertOfBoard" parameterType="bdto">
+     insert into sboard (writer,subject,photo,content,readcount,writeday) 
+     values(#{writer},#{subject},#{photo},#{content},0,now())
+   </insert>
+   
+   <!-- 전체조회 -->
+   <select id="selectAllOfBoard" resultType="bdto">
+     select * from sboard order by num desc
+   </select>
+   
+   <!-- 페이징 -->
+   <select id="selectPagingListOfMember" parameterType="HashMap" resultType="bdto">
+      select * from sboard order by num desc limit #{start}, #{perpage}
+   </select>
+   
+   <!-- 상세보기 -->
+   <select id="SelectOneOfBoard" parameterType="int" resultType="bdto">
+     select * from sboard where num=#{num}
+   </select>
+   
+   <!-- readcount -->
+   <update id="updateReadCountOfBoard" parameterType="int">
+     update sboard set readcount=readcount+1 where num=#{num}
+   </update>
+  
+ </mapper>

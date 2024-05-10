@@ -85,7 +85,7 @@
         <tr>
           <td colspan="2" align="center">
             <button type="submit" class="btn btn-outline-info">회원가입</button>
-            <button type="submit" class="btn btn-outline-success">회원목록</button>
+            <button type="button" class="btn btn-outline-success" onclick="location.href='list'">회원목록</button>
           </td>
         </tr>
       </table>

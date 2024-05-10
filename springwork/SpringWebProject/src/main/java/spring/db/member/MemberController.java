@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/member")
@@ -68,6 +69,45 @@ public class MemberController {
 		memInter.insertMember(dto);
 		
 		return "redirect:list";
+	}
+	
+	
+	//수정폼
+	@GetMapping("/updateform")
+	public ModelAndView uform(@RequestParam String num) {
+		
+		ModelAndView model = new ModelAndView();
+		
+		MemberDto dto = memInter.getOneData(num);
+		
+		//dto를 request에 저장
+		model.addObject("dto", dto);
+		
+		//해당 jsp에 포워드
+		model.setViewName("member/updateform");
+		
+		return model;
+	}
+	
+	//수정하기
+	@PostMapping("/update")
+	public String update(@ModelAttribute MemberDto dto) {
+		
+		//비번이 맞는지 체크
+		int n = memInter.passCheck(dto.getNum(), dto.getPass());
+		
+		if(n==1) {
+			
+			//비번이 맞으면 수정 후 목록으로 이동
+			memInter.updateMember(dto);
+			
+			return "redirect:list";
+		}
+		
+		else {
+			
+			return "member/passfail";
+		}
 	}
 	
 }

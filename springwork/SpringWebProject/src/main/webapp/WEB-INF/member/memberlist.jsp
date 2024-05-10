@@ -49,9 +49,9 @@
                <td align="center" valign="middle">${dto.gaipdat }</td>
              
                <td align="center" valign="middle">
-                <button type="button" class="btn btn-outline-info"
+                <button type="button" class="btn btn-outline-info btn-sm"
                 onclick="location.href='updateform?num=${dto.num}'">수정</button>
-                <button type="button" class="btn btn-outline-danger"
+                <button type="button" class="btn btn-outline-danger btn-sm"
                 onclick="location.href='delete?num=${dto.num}'">삭제</button>
                </td>
              </tr>

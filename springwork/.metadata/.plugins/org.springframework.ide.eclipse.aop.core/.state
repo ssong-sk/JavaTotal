@@ -4,5 +4,7 @@
 <aop-project name="SpringMvcFileUploadEx6"/>
 <aop-project name="SpringMvcUploadQuiz"/>
 <aop-project name="SpringMysqlMyBatis"/>
+<aop-project name="SpringWebProject"/>
 <aop-project name="SprinMvcTest"/>
+<aop-project name="SpringMvcJsonEx"/>
 </aop-reference-model>

@@ -19,7 +19,7 @@
      select * from smember order by num desc
    </select>
    
-   <!-- num 가져오기 -->
+   <!-- num 가져오기/수정폼가져오기 -->
    <select id="selectOneOfMember" parameterType="String" resultType="mdto">
      select * from smember where num=#{num}
    </select>
@@ -28,4 +28,15 @@
    <select id="totalCountMember" resultType="int">
      select count(*) from smember
    </select>
+   
+   <!-- 수정할떄 비밀번호 비교 -->
+   <select id="passCheckOfMember" parameterType="HashMap" resultType="int">
+     select count(*) from smember where num = #{num} and pass = #{pass}
+   </select>
+   
+   
+   <!-- 수정하기 -->
+   <update id="updateOfMember" parameterType="mdto">
+     update smember set name=#{name}, hp = #{hp} where num=#{num}
+   </update>
  </mapper>

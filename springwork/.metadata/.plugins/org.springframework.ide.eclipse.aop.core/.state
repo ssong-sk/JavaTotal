@@ -6,5 +6,6 @@
 <aop-project name="SpringMysqlMyBatis"/>
 <aop-project name="SpringWebProject"/>
 <aop-project name="SprinMvcTest"/>
+<aop-project name="SpringReBoard"/>
 <aop-project name="SpringMvcJsonEx"/>
 </aop-reference-model>

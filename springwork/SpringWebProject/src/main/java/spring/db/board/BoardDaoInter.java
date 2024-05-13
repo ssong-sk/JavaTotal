@@ -25,4 +25,13 @@ public interface BoardDaoInter {
 	
 	//페이징
 	public List<BoardDto> getList(int start, int perpage);
+	
+	//수정하기
+	public void updateBoard(BoardDto dto);
+	
+	//삭제하기
+	public void deleteBoard(int num);
+	
+	//아작스 리스트
+	public List<BoardDto> getPhotoLists();
 }

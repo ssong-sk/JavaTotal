@@ -40,5 +40,24 @@
    <update id="updateReadCountOfBoard" parameterType="int">
      update sboard set readcount=readcount+1 where num=#{num}
    </update>
-  
+   
+   <!-- 글 update 하기 -->
+   <update id="updateOfBoard" parameterType="bdto">
+     update sboard set subject=#{subject}, content=#{content}
+     <!-- photo 조건주기  null이 아닐경우 변경-->
+     <if test="photo!=null">
+       , photo=#{photo}
+     </if>
+     where num=#{num}
+   </update>
+   
+   <!-- 삭제하기 -->
+   <delete id="deleteOfBoard" parameterType="int">
+     delete from sboard where num=#{num}
+   </delete>  
+   
+   <!-- 아작스 리스트출력 -->
+   <select id="selectPhotoOfBoard" resultType="bdto">
+        select * from sboard where photo!='no' order by num desc
+   </select>
  </mapper>

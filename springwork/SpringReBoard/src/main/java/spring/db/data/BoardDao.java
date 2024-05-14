@@ -100,4 +100,30 @@ public class BoardDao implements BoardDaoInter {
 		return session.selectOne("getDataOfBoard", num);
 	}
 
+	//pass체크
+	@Override
+	public int getCheckPass(int num, int pass) {
+		// TODO Auto-generated method stub
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		
+		map.put("num", num);
+		map.put("pass", pass);
+		
+		return session.selectOne("CheckEqualPassOfBoard", map);
+	}
+
+	//수정하기
+	@Override
+	public void updateBoard(BoardDto dto) {
+		// TODO Auto-generated method stub
+		session.update("UpdateOfBoard", dto);
+	}
+
+	//삭제
+	@Override
+	public void deleteBoard(int num) {
+		// TODO Auto-generated method stub
+		session.delete("DeleteOfBoard", num);
+	}
+
 }

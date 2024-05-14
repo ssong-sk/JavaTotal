@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import spring.db.answerdata.AnswerDao;
 import spring.db.data.BoardDaoInter;
 import spring.db.data.BoardDto;
 
@@ -18,6 +19,10 @@ public class BoardListController {
 	
 	@Autowired
 	BoardDaoInter dao;
+	
+	//댓글
+	@Autowired
+	AnswerDao adao;
 	
 	//첫화면
 	@GetMapping("/")
@@ -33,7 +38,7 @@ public class BoardListController {
 			
 			//페이징에 필요한 변수
 			int totalCount = dao.getTotalCount();
-			int perPage=3; //한페이지당 보여질 글의 갯수
+			int perPage=5; //한페이지당 보여질 글의 갯수
 			int perBlock=5; //한블럭당 보여질 페이지 갯수
 			int start; //db에서 가져올 글의 시작번호(mysql은 첫글이0번,오라클은 1번);
 			int startPage; //각블럭당 보여질 시작페이지
@@ -68,10 +73,15 @@ public class BoardListController {
 			List<BoardDto> list = dao.getList(start, perPage);
 		
 		
+			//리스트 각글에 대한 갯수 추가하기
+			for(BoardDto d:list) {
+				d.setAcount(adao.getAnswerList(d.getNum()).size());
+			}
+			
 		
 		//포워드
 		mview.addObject("totalCount", totalCount);
-		mview.addObject("list", list);
+		mview.addObject("list", list); //댓글을 포함한 후 전달
 		mview.addObject("no", no);
 		mview.addObject("startPage", startPage);
 		mview.addObject("endPage", endPage);

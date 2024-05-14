@@ -41,4 +41,23 @@
      select * from reboard where num = #{num}
    </select>
    
+   <!-- 비밀번호체크 -->
+   <select id="CheckEqualPassOfBoard" parameterType="HashMap" resultType="int">
+     select count(*) from reboard where num=#{num} and pass=#{pass}
+   </select>
+   
+   <!-- 수정하기 -->
+   <update id="UpdateOfBoard" parameterType="bdto">
+     update reboard set writer=#{writer}, subject=#{subject}, content=#{content}
+     <if test="photo!=null">
+       ,photo=#{photo}
+     </if>
+     where num=#{num}
+   </update>
+   
+   <!-- 삭제하기 -->
+   <delete id="DeleteOfBoard" parameterType="int">
+     delete from reboard where num=#{num}
+   </delete>
+   
  </mapper>

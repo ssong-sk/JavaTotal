@@ -13,6 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+  <script type="text/javascript">
+    alert("비밀번호가 맞지 않습니다");
+    history.back();
+  </script>
 </body>
 </html>

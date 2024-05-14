@@ -6,5 +6,6 @@
   <configuration>
     <typeAliases>
       <typeAlias alias="bdto" type="spring.db.data.BoardDto"/>
+      <typeAlias alias="adto" type="spring.db.answerdata.AnswerDto"/>
     </typeAliases>
   </configuration>

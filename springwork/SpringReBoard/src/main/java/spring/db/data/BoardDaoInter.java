@@ -24,5 +24,14 @@ public interface BoardDaoInter {
 	
 	//num 값 가져오기 -> 수정폼 / content폼
 	public BoardDto getOneData(int num);
+	
+	//pass 비교
+	public int getCheckPass(int num, int pass);
+	
+	//수정하기
+	public void updateBoard(BoardDto dto);
+	
+	//삭제하기
+	public void deleteBoard(int num);
 
 }

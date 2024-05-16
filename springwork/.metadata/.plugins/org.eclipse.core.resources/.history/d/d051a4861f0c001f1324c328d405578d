@@ -1,9 +1,0 @@
-package spring.day0507.data;
-
-public class ShopDto {
-
-	  private String sang;
-	  private String color;
-	  private String price;
-	  private String image;
-}

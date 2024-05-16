@@ -6,5 +6,6 @@
     <typeInfo handle="=SpringWebProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.db.member{MemberDaoInter.java[MemberDaoInter" modifiers="513" timestamp="1715303680167"/>
     <typeInfo handle="=SpringWebProject/C:\/Program Files\/Java\/jdk-17\/lib\/jrt-fs.jar`java.base=/maven.pomderived=/true=/&lt;java.lang.reflect(Member.class[Member" modifiers="1537" timestamp="1700480015818"/>
     <typeInfo handle="=SpringWebProject/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.db.board{BoardDaoInter.java[BoardDaoInter" modifiers="513" timestamp="1715564939644"/>
-    <typeInfo handle="=SpringReBoard/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.db.data{BoardDaoInter.java[BoardDaoInter" modifiers="513" timestamp="1715571819292"/>
+    <typeInfo handle="=SpringReBoard/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.db.data{BoardDaoInter.java[BoardDaoInter" modifiers="513" timestamp="1715647697582"/>
+    <typeInfo handle="=SpringReBoard/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.db.answerdata{AnswerDaoInter.java[AnswerDaoInter" modifiers="513" timestamp="1715667664443"/>
 </typeInfoHistroy>

@@ -25,5 +25,5 @@ public class AnswerController {
 		//내용보기로 리다이렉트
 		return "redirect:content?num="+dto.getNum()+"&currentPage="+currentPage;
 	}
-	
+	                        
 }

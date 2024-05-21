@@ -73,5 +73,81 @@ public class MyCarController {
 		return "redirect:list";	
 	}
 	
+	//상세보기
+	@GetMapping("/detail")
+	public String detail(@RequestParam Long num, Model model) {
+		
+		MyCarDto dto = dao.getData(num);
+		model.addAttribute("dto", dto);
+		
+		return "mycar/mycardetail";
+	}
 	
+	//수정폼
+	@GetMapping("/updateform")
+	public String uform(@RequestParam Long num, Model model) {
+		
+		MyCarDto dto = dao.getData(num);
+		
+		model.addAttribute("dto", dto);
+		
+		return "mycar/updateform";
+	}
+	
+	//삭제하기
+	@GetMapping("/delete")
+	public String delete(@RequestParam Long num, HttpSession session) {
+		
+		//파일사진부터 삭제
+		String carphoto = dao.getData(num).getCarphoto();
+		String realPath = session.getServletContext().getRealPath("/save");
+		
+		//파일 객체 생성 후 삭제
+		File file = new File(realPath+"\\"+carphoto);
+		
+		if(file.exists()) {
+			file.delete();
+		}
+		
+		//db 삭제
+		dao.deleteMyCar(num);
+		
+		return "redirect:list";
+	}
+	
+	//수정하기
+	@PostMapping("/update")
+	public String update(@ModelAttribute MyCarDto dto, @RequestParam MultipartFile upload, HttpSession session) {
+		
+		if(upload.getOriginalFilename().equals("")) {
+			
+			dao.updateMycarNoPhoto(dto);
+		}
+		
+		else {
+			
+			String realPath = session.getServletContext().getRealPath("/save");
+			
+			String uploadName = upload.getOriginalFilename();
+			
+			dto.setCarphoto(uploadName);
+			
+			//실제 업로드
+			try {
+				upload.transferTo(new File(realPath+"\\"+uploadName));
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch blockw
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			dao.updateMyCar(dto);
+		}
+		
+		//수정 후 상세보기
+		return "redirect:detail?num="+dto.getNum();
+		
+	}
 }

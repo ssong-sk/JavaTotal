@@ -15,7 +15,7 @@
 </style>
 </head>
 <body>
-  <div style="margin: 100px 100px;">
+  <div style="margin: 100px 100px; width: 800px;">
     <h3 class="alert alert-info">Mycar 목록 출력</h3>
     <h5><b>총 [[${count}]]개의 자동차 정보가 등록되었습니다</b></h5>
     
@@ -26,18 +26,18 @@
     
     <table class="table table-bordered">
       <tr class="table-info">
-        <th width="80">번호</th>
-        <th width="120">자동차명</th>
-        <th width="150">자동차가격</th>
-        <th width="120">자동차색상</th>
+        <th width="60">번호</th>
+        <th width="150">자동차명</th>
+        <th width="120">자동차가격</th>
+        <th width="100">자동차색상</th>
       </tr>
       
       <!-- list 반복하여 출력하기 -->
       <tr th:each="dto, iter:${list}">
         <td>[[${iter.count}]]</td>
         <td>
-          <a>
-            <img th:src="@{|/save/${dto.carphoto}|}" style="width: 120px;">
+          <a th:href="@{/detail(num=${dto.num})}" style="text-decoration: none;">
+            <img th:src="@{|/save/${dto.carphoto}|}" style="width: 50px;">
             [[${dto.carname}]]
           </a>
         </td>

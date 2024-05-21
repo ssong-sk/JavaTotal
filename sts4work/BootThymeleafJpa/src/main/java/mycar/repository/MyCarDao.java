@@ -2,6 +2,7 @@ package mycar.repository;
 
 import java.util.List;
 
+import org.springframework.aop.support.DelegatePerTargetObjectIntroductionInterceptor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
@@ -43,5 +44,16 @@ public class MyCarDao {
 	public void updateMyCar(MyCarDto dto) {
 		
 		daoInter.save(dto);
+	}
+	
+	//수정하기
+	public void updateMycarNoPhoto(MyCarDto dto) {
+		
+		Long num = dto.getNum();
+		String carname = dto.getCarname();
+		int carprice = dto.getCarprice();
+		String carcolor = dto.getCarcolor();
+		
+		daoInter.updateMycarNoPhoto(num, carname, carprice, carcolor);
 	}
 }

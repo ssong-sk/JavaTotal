@@ -7,8 +7,91 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
+<style type="text/css">
+  .box {
+    width: 200px;
+    height: 50px;
+    border: 1px solid gray;
+    font-size: 20px;
+  }
+</style>
+<script type="text/javascript">
+  $(function(){
+	
+	  //처음 시작 시 댓글 출력
+	  comment_list();
+	  
+	  //댓글 comment_insert
+	
+  })
+  
+  function comment_list() {
+	  
+	  
+  }
+</script>
 </head>
 <body>
-
+  <div style="margin: 100px 100px; width: 500px;">
+    <h3>[[*{dto.carname}]] 상세보기</h3>
+    <hr>
+    <h3>원본이미지</h3>
+    <img th:src="@{|/save/${dto.carphoto}|}" style="max-width: 400px; boarder: 2px solid gray;">
+    <hr>
+    <div th:object=${dto}>
+      <h4>자동차명 : [[*{carname}]]</h4>
+      <h4>가격 : [[*{carprice}]]</h4>
+      <div class="box" th:style="'background-color:'+*{carcolor}">
+       <h4>색상 : [[*{carcolor}]]</h4>
+      </div>
+      <h4>등록일 : 
+        <span th:text="${#calendars.format(dto.writeday,'yyyy-MM-dd HH:mm')}"></span>
+      </h4>
+    </div>
+    
+    <!-- 댓글 부분 추가하기 -->
+    <hr>
+    
+    <div class="comment-list">
+      댓글목록
+    </div>
+    <div class="d-inline-flex">
+      <input type="text" class="form-control" style="width: 400px;" id="comment">
+      <button type="button" class="btn btn-outline-info btn-sm" id="btncomment">저장</button>
+    </div>
+    
+    <script type="text/javascript">
+          //댓글 comment_insert
+          $("#btncomment").click(function(){
+        	  
+        	  var num = [[${dto.num}]];
+        	  
+        	  var comment = $("#comment").val();
+        	  
+        	  $.ajax({
+        		
+        		  type : "get",
+        		  dataType : "html",
+        		  url : "./addcomment",
+        		  data : {"num":num, "comment":comment},
+        	      success : function() {
+        	    	  
+        	    	  alert("success");
+        	    	  $("#comment").val('');
+        	      }
+        		  
+        	  });
+          });
+          
+    </script>
+    
+    <!-- 버튼 -->
+    <br>
+    <hr>
+    <button type="button" class="btn btn-outline-info" onclick="location.href='writeform'">추가</button>
+    <button type="button" class="btn btn-outline-success" onclick="location.href='list'">목록</button>
+    <button type="button" class="btn btn-outline-warning" th:onclick="|location.href='@{/updateform(num=${dto.num})}'|">수정</button>
+    <button type="button" class="btn btn-outline-danger" th:onclick="|location.href='@{/delete(num=${dto.num})}'|">삭제</button>
+  </div>
 </body>
 </html>

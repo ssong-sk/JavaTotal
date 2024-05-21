@@ -39,6 +39,11 @@
           <a th:href="@{/detail(num=${dto.num})}" style="text-decoration: none;">
             <img th:src="@{|/save/${dto.carphoto}|}" style="width: 50px;">
             [[${dto.carname}]]
+            
+            <!-- 댓글 갯수 추가 -->
+            <span thLif="$dto.commentcount>0" style="color: red;">
+              ([[${dto.commentcount}]])
+            </span>
           </a>
         </td>
         

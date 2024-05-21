@@ -44,6 +44,6 @@ public class MyCarCommentDto {
 	
 	@Column(updatable = false)
 	@CreationTimestamp //생성 시 자동 등록
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm") //날짜형식 미리 포맷하여 저장
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul") //날짜형식 미리 포맷하여 저장
 	private Timestamp writeday;
 }

@@ -21,12 +21,38 @@
 	  //처음 시작 시 댓글 출력
 	  comment_list();
 	  
-	  //댓글 comment_insert
+	  
 	
   })
   
   function comment_list() {
 	  
+	  let num = [[${dto.num}]];
+	  //alert(num);
+	  
+	  var comment = $("#comment").val();
+	  
+	  $.ajax ({
+		
+	      type:"get",
+	         dataType:"json",
+	         url:"./commentList",
+	         data:{"num":num},
+	         success:function(res){
+	        	 
+	            let s = `댓글 &nbsp;${res.length}개`;
+	            
+	            $.each(res, function(idx,item){
+	               s+=`<hr><div style='margin-left:10px;'>
+	                     ▶ ${item.comment}&nbsp;
+	                     <span style='color:gray; font-size:0.9em;'>${item.writeday}</span>
+	                  </div><hr>`; 
+	            });
+	            
+	            $(".comment-list").html(s);
+	         }
+
+	  });
 	  
   }
 </script>
@@ -76,7 +102,8 @@
         		  data : {"num":num, "comment":comment},
         	      success : function() {
         	    	  
-        	    	  alert("success");
+        	    	  //alert("success");
+        	    	  comment-list();
         	    	  $("#comment").val('');
         	      }
         		  

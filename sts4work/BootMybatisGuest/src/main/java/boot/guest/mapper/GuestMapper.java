@@ -17,5 +17,11 @@ public interface GuestMapper {
 	
 	//select 전체출력
 	public List<GuestDto> getAllDatas();
+	
+	//pass 비교
+	public int isEqualPassCheck(int num, String pass);
+	
+	//delete
+	public void deleteGuest(int num);
 
 }

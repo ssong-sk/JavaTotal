@@ -13,6 +13,39 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+  <div style="margin: 100px 100px;">
+    <h2>Market정보 입력하기</h2>
+      <form action="insert" method="post" enctype="multipart/form-data">
+        <table class="table table-bordered" style="width: 500px;">
+          <tr>
+            <th width="100" class="table-info">상품명</th>
+            <td>
+              <input type="text" name="sang" class="form-control" style="width: 150px;" required="required">
+            </td>
+          </tr>
+          
+          <tr>
+            <th width="100" class="table-info">단가</th>
+            <td>
+              <input type="text" name="dan" class="form-control" style="width: 150px;" required="required">
+            </td>
+          </tr>
+          
+          <tr>
+            <th width="100" class="table-info">상품이미지</th>
+            <td>
+              <input type="file" name="photo" class="form-control" style="width: 350px;">
+            </td>
+          </tr>
+          
+          <tr>
+            <td colspan="2" align="center">
+              <button type="submit" class="btn btn-outline-info">저장</button>
+              <button type="button" class="btn btn-outline-success" onclick="location.href='list'">목록</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+  </div>
 </body>
 </html>

@@ -1,0 +1,21 @@
+#tomcat port
+server:
+  port: 9002
+ 
+#thumeleaf
+spring:
+  thymeleaf:
+    cache: false
+      
+#mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url : jdbc:mysql://localhost:3306/angel
+    username: angel
+    password: a1234
+    
+#mybatis (dto를 주로 의미함 / 등록)
+mybatis:
+  type-aliases-package: myshop.dto
+  mapper-locations:
+  - /mapper/**/*.xml

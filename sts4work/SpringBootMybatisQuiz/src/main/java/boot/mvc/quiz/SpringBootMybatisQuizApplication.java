@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan({"boot.*"})
-@MapperScan({"data.mapper"})
+@MapperScan({"boot.data"})
 public class SpringBootMybatisQuizApplication {
 
 	public static void main(String[] args) {

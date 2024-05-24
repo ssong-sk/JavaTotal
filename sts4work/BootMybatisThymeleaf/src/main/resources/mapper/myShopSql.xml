@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="myshop.mapper.MyShopMapper">
+  
+  <!-- 갯수 -->
+  <select id="getTotalCount" resultType="int">
+    select count(*) from my_shop
+  </select>
+  
+  <!-- insert -->
+  <insert id="insertShop" parameterType="ShopDto">
+    insert into my_shop (sangpum, price, photo, color, writeday) values(#{sangpum},#{price},#{photo},#{color},now())
+  </insert>
+</mapper>

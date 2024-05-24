@@ -8,4 +8,14 @@
     select count(*) from book
   </select>
 
+  <!-- insert -->
+  <insert id="insertBook" parameterType="bdto">
+    insert into book (bookname, writer, bookprice, bookimage, bookcompany, ipgoday)
+    values(#{bookname},#{writer},#{bookprice},#{bookimage},#{bookcompany},now())
+  </insert>
+  
+  <!-- list 출력 -->
+  <select id="getAllBooks" resultType="bdto">
+    select * from book where num=#{num}
+  </select>
 </mapper>

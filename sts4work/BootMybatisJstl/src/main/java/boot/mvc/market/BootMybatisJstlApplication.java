@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan({"data.*"})
-@MapperScan({"data.mapper"})
+@MapperScan({"boot.mapper"})
 public class BootMybatisJstlApplication {
 
 	public static void main(String[] args) {

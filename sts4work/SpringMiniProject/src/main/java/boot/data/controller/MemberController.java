@@ -97,7 +97,8 @@ public class MemberController {
 		
 
 		service.insertMember(dto);
-
+		
+		
 		return "redirect:list";
 	}
 	
@@ -135,5 +136,33 @@ public class MemberController {
 	public void deleteMember(String num) {
 		
 		service.deleteMember(num);
+	}
+	
+	//회원사진 변경하기
+	@PostMapping("/member/updatephoto")
+	@ResponseBody
+	public void photoUpload(@RequestParam String num, @RequestParam MultipartFile photo, HttpSession session) {
+		
+		String path = session.getServletContext().getRealPath("/memberimage");
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		
+		String fileName = sdf.format(new Date()) + photo.getOriginalFilename();
+		
+		try {
+			photo.transferTo(new File(path + "\\" + fileName));
+			
+			//db사진수정
+			service.updatePhoto(num, fileName);
+			
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 }

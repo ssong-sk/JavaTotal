@@ -11,6 +11,47 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
+<script type="text/javascript">
+  $(function () {
+	
+	  $(".btnnewphoto").click(function () {
+		
+		  //파일창 띄우기
+		  $("#newphoto").trigger("click");
+		  
+	});
+	  
+	  $("#newphoto").change(function () {
+		
+		  var num = $(this).attr("num");
+		  //alert(num);
+		  
+		  //폼데이터 
+		  var form = new FormData();
+		  
+		  form.append("photo",$("#newphoto")[0].files[0]); //선택한 이미지 1개만 선택하겠다는 로직공식
+		  form.append("num",num); //위에서 num값 띄운부분 가져오기
+		  
+		  console.log(form);
+		  
+		  $.ajax ({
+			
+			  type : "post",
+			  dataType : "html",
+			  url : "updatephoto",
+			  processData: false,
+			  contentType: false,
+			  data : form,
+			  success : function () {
+				
+				  location.reload();
+			}
+		  })
+	});
+	  
+  })
+  
+</script>
 </head>
 <body>
   <div style="width: 700px; margin: 50px 150px;">
@@ -23,7 +64,7 @@
               <img alt="" src="../memberimage/${dto.photo }" width="200" height="250">
               <br>
               <input type="file" id="newphoto" num="${dto.num }" style="display: none;"><br>
-              <button type="button" class="btn btn-outline-info">사진수정</button>
+              <button type="button" class="btn btn-outline-info btnnewphoto">사진수정</button>
             </td>
             
             <td>회원명 : ${dto.name }</td>

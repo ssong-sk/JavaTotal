@@ -30,4 +30,10 @@ public interface MemberMapperInter {
 	
 	//삭제
 	public void deleteMember(String num);
+	
+	//num값 넘겨주기
+	public MemberDto getDataByNum(String num);
+	
+	//회원사진만 변경
+	public void updatePhoto(Map<String, String> map);
 }

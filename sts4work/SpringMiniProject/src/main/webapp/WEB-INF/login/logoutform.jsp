@@ -11,20 +11,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
-<style type="text/css">
-  .info {
-    text-align: center;
-  }
-</style>
 </head>
-   <c:set var="root" value="<%=request.getContextPath() %>"/>
+  <c:set var="root" value="<%=request.getContextPath() %>"/>
 <body>
-  <span class="info">
-  <i class="bi bi-envelope"></i>&nbsp;&nbsp;saram@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <i class="bi bi-phone-vibrate"></i>&nbsp;&nbsp;010-3044-4444&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <i class="bi bi-house-door"></i>&nbsp;&nbsp;서울시 강남구 역삼동 444&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <i class="bi bi-instagram"></i>&nbsp;&nbsp;@saramin
-  </span>
-  
+  <div style="width: 400px; margin: 50px 350px;">
+    <img alt="" src="${root }/image/logout.png" width="200" align="left" hspace="20"><br><br>
+    <b>${name }님 로그인 중</b><br><br>
+    <button type="button" class="btn btn-outline-danger" onclick="location.href='logoutprocess'">logout</button>
+  </div>
 </body>
 </html>

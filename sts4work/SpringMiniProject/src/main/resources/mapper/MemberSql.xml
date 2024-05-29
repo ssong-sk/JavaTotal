@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="boot.data.mapper.MemberMapperInter">
+  
+  <!-- insert -->
+  <insert id="insertMember" parameterType="MemberDto">
+    insert into m_member (name, id, pass, photo, hp, addr, email, gaipday)
+    values(#{name}, #{id}, #{pass}, #{photo}, #{hp}, #{addr}, #{email}, now())
+  </insert>
+  
+  <!-- 전체출력 -->
+  <select id="getAllMembers" resultType="MemberDto">
+    select * from m_member order by id desc
+  </select>
+  
+  <!-- 갯수 id찾기 -->
+  <select id="getSerchId" parameterType="String" resultType="int">
+    select count(*) from m_member where id=#{id}
+  </select>
+  
+  <!-- 삭제 -->
+  <delete id="deleteMember" parameterType="String">
+    delete from m_member where num=#{num}
+  </delete>
+  
+  <!-- id값 넘기기 -->
+  <select id="getName" parameterType="String" resultType="String">
+    select name from m_member where id=#{id}
+  </select>
+  
+  <!-- 비번 아이디 체크(로그인) -->
+  <select id="loginIdPassCheck" parameterType="Map" resultType="int">
+    select count(*) from m_member where id=#{id} and pass=#{pass}
+  </select>
+  
+  <!-- 로그인정보 넘기기 -->
+  <select id="getDataById" parameterType="String" resultType="MemberDto">
+    select * from m_member where id=#{id}
+  </select>
+  
+</mapper>

@@ -17,5 +17,10 @@ public interface IpgoMapperInter {
 	
 	//list
 	public List<IpgoDto> getAllDatas();
+	
+	//num 가져오기
+	public IpgoDto getData(String num);
 
+	//update
+	public void updateIpgo(IpgoDto dto);
 }

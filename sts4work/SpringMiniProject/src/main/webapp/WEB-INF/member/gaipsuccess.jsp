@@ -11,20 +11,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
-<style type="text/css">
-  .info {
-    text-align: center;
-  }
-</style>
 </head>
-   <c:set var="root" value="<%=request.getContextPath() %>"/>
 <body>
-  <span class="info">
-  <i class="bi bi-envelope"></i>&nbsp;&nbsp;saram@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <i class="bi bi-phone-vibrate"></i>&nbsp;&nbsp;010-3044-4444&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <i class="bi bi-house-door"></i>&nbsp;&nbsp;서울시 강남구 역삼동 444&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <i class="bi bi-instagram"></i>&nbsp;&nbsp;@saramin
-  </span>
-  
+  <script type="text/javascript">
+    alert("가입을 축하드립니다");
+    history.back();
+  </script>
 </body>
 </html>

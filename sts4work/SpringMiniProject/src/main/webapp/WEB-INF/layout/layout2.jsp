@@ -35,7 +35,7 @@
    div.layout div.info{
       position: absolute;
       width: 100%;
-      top: 1300px;
+      top: 1800px;
       background-color : #00D3AB;
       padding: 20px 20px;
       color: white;
@@ -46,7 +46,6 @@
       position: absolute;
       left: 460px;
       top: 300px;
-      width: 1000px;
    
       
    }

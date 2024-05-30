@@ -79,6 +79,7 @@ public class MemberService implements MemberServiceInter {
 		return mapperInter.getDataByNum(num);
 	}
 
+	//num넘겨서 photo 수정하기
 	@Override
 	public void updatePhoto(String num, String photo) {
 		// TODO Auto-generated method stub
@@ -88,6 +89,14 @@ public class MemberService implements MemberServiceInter {
 		map.put("photo", photo);
 		
 		mapperInter.updatePhoto(map);
+	}
+
+	//회원수정
+	@Override
+	public void updateMember(MemberDto dto) {
+		// TODO Auto-generated method stub
+		
+		mapperInter.updateMember(dto);
 	}
 
 }

@@ -48,4 +48,8 @@
     update m_member set photo=#{photo} where num=#{num}
   </update>
   
+  <!-- 회원정보 수정 -->
+  <update id="updateMember" parameterType="MemberDto">
+    update m_member set name=#{name}, hp=#{hp}, addr=#{addr}, email=#{email} where num=#{num}
+  </update>
 </mapper>

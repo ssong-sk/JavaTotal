@@ -33,5 +33,8 @@ public interface MemberServiceInter {
   	
   	//회원사진만 변경
   	public void updatePhoto(String num, String photo);
+  	
+  	//회원수정
+  	public void updateMember(MemberDto dto);
 
 }

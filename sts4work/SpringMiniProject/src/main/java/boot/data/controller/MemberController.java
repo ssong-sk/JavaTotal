@@ -155,6 +155,9 @@ public class MemberController {
 			//db사진수정
 			service.updatePhoto(num, fileName);
 			
+			//세션의 사진 변경
+			session.setAttribute("loginphoto", fileName);
+			
 		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -165,4 +168,34 @@ public class MemberController {
 		
 		
 	}
+	
+	//회원수정 _ 수정폼
+	@GetMapping("/member/updateform")
+	@ResponseBody
+	public MemberDto getData(@RequestParam String num) {
+		
+		//num에 따른 반환 값을 받아서 띄어줌
+		return service.getDataByNum(num);
+		
+	}
+	
+	//수정하기
+	@PostMapping("/member/update")
+	@ResponseBody
+	public void update(@ModelAttribute MemberDto dto) {
+		
+		service.updateMember(dto);
+	}
+	
+	//탈퇴
+	@GetMapping("/member/deleteme")
+	@ResponseBody
+	public void deleteme(String num, HttpSession session) {
+
+		service.deleteMember(num);
+
+		session.removeAttribute("loginok");
+		session.removeAttribute("myid");
+	}
+	
 }

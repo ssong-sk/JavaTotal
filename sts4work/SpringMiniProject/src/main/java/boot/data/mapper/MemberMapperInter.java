@@ -36,4 +36,7 @@ public interface MemberMapperInter {
 	
 	//회원사진만 변경
 	public void updatePhoto(Map<String, String> map);
+	
+	//update
+	public void updateMember(MemberDto dto);
 }

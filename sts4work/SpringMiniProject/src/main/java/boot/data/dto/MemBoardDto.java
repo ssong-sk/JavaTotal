@@ -19,7 +19,7 @@ public class MemBoardDto {
 	private String uploadfile;
 	private MultipartFile upload; //멤버로 주입(insert할때 업로드한 파일)
 	private int readcount;
-	private Timestamp wirteday;
+	private Timestamp writeday;
 	
 	
 }

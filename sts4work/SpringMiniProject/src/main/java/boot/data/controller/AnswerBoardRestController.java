@@ -1,8 +1,11 @@
 package boot.data.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,8 +43,31 @@ public class AnswerBoardRestController {
 	}
 	
 	//전체출력
+	@GetMapping("board/alist")
+	public List<AnswerMboardDto> alist(String num) {
+		
+		return service.getAllAnswer(num);
+	}
 	
-	//수정
+	//수정폼나타내기
+	@GetMapping("/board/adata")
+	public AnswerMboardDto adata(String idx) {
+		
+		return service.getAnswer(idx);
+		
+	}
+	
+	//수정하기
+	@PostMapping("/board/aupdate")
+	public void aupdate(@ModelAttribute AnswerMboardDto dto) {
+		
+		service.updateAnswer(dto);
+	}
 	
 	//삭제
+	@GetMapping("/board/adelete")
+	public void adelete(String idx) {
+		
+		service.deleteAnswer(idx);
+	}
 }

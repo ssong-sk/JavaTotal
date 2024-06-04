@@ -43,7 +43,7 @@
        <a href="${root }/">Home</a>
      </li>
      <li>
-       <a href="${root }/ipgo/writeform">공고등록</a>
+       <a href="${root }/reboard/list">답변형게시판</a>
      </li>
      <li>
        <a href="${root }/ipgo/list">공고목록</a>

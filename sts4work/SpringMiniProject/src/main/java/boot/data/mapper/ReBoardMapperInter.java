@@ -16,25 +16,26 @@ public interface ReBoardMapperInter {
 	//insert
 	public void insertReBoard(ReBoardDto dto);
 	
-	//페이징 처리
-	public List<ReBoardDto> getPaginglist(Map<String, Object> map);
+	//페이징처리
+	public List<ReBoardDto> getPagingList(Map<String, Object> map);
 	
 	//num값 넘기기
 	public ReBoardDto getData(int num);
 	
-	
 	//최신글이 위에 올라오더라도 내가 쓴 글이 위에 정렬하기위해서 사용
 	public void updateRestep(Map<String, Integer> map);
 	
-	//페이징 처리
+	//readcount 페이지 처리
 	public void updateReadCount(int num);
 	
-	//마지막 페이징처리(상세보기에 가야하기 때문)
+	//마지막 페이징
 	public int getMaxNum();
 	
 	//삭제
 	public void deleteBoard(int num);
 	
 	//좋아요 카운트
-	public void likesUpdte(int num);
+	public void likesUpdate(int num);
+	
+	
 }

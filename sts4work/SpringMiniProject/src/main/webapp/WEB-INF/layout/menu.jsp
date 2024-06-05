@@ -18,7 +18,7 @@
    }
    
    ul.menu li{
-      width: 130px;
+      width: 120px;
       float: left;
       border: 1px solid #8AA4E8;
       height: 40px;
@@ -42,21 +42,31 @@
      <li>
        <a href="${root }/">Home</a>
      </li>
+     
      <li>
        <a href="${root }/reboard/list">답변형게시판</a>
      </li>
+     
      <li>
        <a href="${root }/ipgo/list">공고목록</a>
      </li>
+     
      <li>
        <a href="${root }/member/myinfo">회원정보</a>
      </li>
+     
      <li>
        <a href="${root }/member/form">회원가입</a>
      </li>
+     
      <li>
        <a href="${root }/board/list">게시판</a>
      </li>
+     
+     <li>
+       <a href="${root }/smart/form">스마트게시판</a>
+     </li>
+     
      <li>
        <a href="${root }/load/map">오시는길</a>
      </li>
